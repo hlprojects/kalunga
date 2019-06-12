@@ -1,0 +1,26 @@
+{
+  "name": "kalunga",
+  "version": "1.0.0",
+  "description": "Kalunga is an online obituary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hlinc/kalunga.git"
+  },
+  "keywords": [
+    "kalunga",
+    "online",
+    "obituary",
+    "obituario",
+    "online"
+  ],
+  "author": "Adriano Lupossa <adrianolupossa@gmail.com> (https://medium.com/@adrianolupossa)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hlinc/kalunga/issues"
+  },
+  "homepage": "https://github.com/hlinc/kalunga#readme"
+}
