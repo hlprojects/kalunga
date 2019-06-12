@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/hlinc/kalunga/issues"
   },
-  "homepage": "https://github.com/hlinc/kalunga#readme"
+  "homepage": "https://github.com/hlinc/kalunga#readme",
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2"
+  }
 }
