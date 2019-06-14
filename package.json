@@ -25,5 +25,8 @@
   "homepage": "https://github.com/hlinc/kalunga#readme",
   "dependencies": {
     "materialize-css": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
   }
 }
