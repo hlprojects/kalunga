@@ -1,17 +1,88 @@
-.navbar {
-	background: url('./src/img/bg-flowers.jpg') no-repeat;
-	background-attachment: fixed;
-	height: 100vh;
-	background-size: 100% 90vh;
+.kalunga {
+	border-radius: 2px !important;
+	background-color: #f2f2f2 !important;
+	border: 1px solid #cacaca !important;
+	box-shadow: 0px 2px 13px #cacaca !important;
 }
 
-@media (max-width: 568px) {
-	.navbar {
+header {
+	background-color: #999;
+	background: url('../../src/img/bg-flowers.jpg') no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 95vh;
+	height: 100vh;
+	@media (max-width: 568px) {
 		background-size: 100% 50vh;
 	}
 }
 
+.navbar {
+	padding: 4rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@media (max-width: 568px) {
+		padding: 0.5rem;
+		& .sidenav-trigger {
+			margin-left: 0;
+			margin-top: 0;
+		}
+	}
+	& form {
+		line-height: 0 !important;
+		height: auto !important;
+	}
+	
+	i.material-icons {
+		line-height: 0 !important;
+		height: 0 !important;
+	}
+	
+}
 
 .btn-menu {
+	@extends .kalunga;
+	height: 36px !important;
+	width: 44px !important;
+	cursor: pointer;
+}
 
+.form-search {
+	position: relative;
+	margin-right: 2rem;
+	& i {
+		position: absolute;
+		color: #777;
+		height: 40px !important;
+		top: 20px;
+		left: 5px;
+	}
+}
+
+.input-search {
+	width: 466px !important;
+	margin: 0 !important;
+	@media (max-width: 568px) {
+		width: 50% !important;
+	}
+	
+	@media (max-width: 768px) {
+		width: 80% !important;
+	}
+	height: 39px !important;
+	padding-left: 2.5rem !important;
+	padding-right: 0.5rem !important;
+	&::-webkit-input-placeholder {
+		color: #777;
+	}
+	&::placeholder {
+		color: #777;
+	}
+}
+
+
+.btn-publish {
+	@extends .kalunga;
+	width: 101px;
+	height: 39px;
 }
