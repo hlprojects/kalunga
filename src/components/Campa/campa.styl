@@ -39,16 +39,21 @@ html {
 		position: relative;
 		background: url('../../src/img/campa-resized.png') no-repeat;
 		background-position: center;
-		& .name {
+		& .name-container {
 			position: absolute;
-			bottom: 1.6rem;
-			left: 8rem;
-			color: #fff;
-			font-weight: bolder;
-			@media (min-width: 992px) {
-				bottom: 1.5rem;
-				left: 7.2rem;
+			bottom: 1.55rem;
+			left: 2.5rem;
+			text-align: center;
+			width: 75%;
+			@media (max-width: 568px) {
+				bottom: 1.65rem;
 			}
+			
+			& .name {
+				color: #fff;
+				font-weight: bolder;
+			}
+			
 		}
 	}
 }
