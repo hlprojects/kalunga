@@ -23,12 +23,12 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	@media (max-width: 568px) {
-		padding: 0.5rem;
+		padding: 1rem;
 		& .sidenav-trigger {
-			margin-left: 0;
-			margin-top: 0;
+			margin: 0 !important;
 		}
 	}
+	
 	& form {
 		line-height: 0 !important;
 		height: auto !important;
@@ -46,11 +46,15 @@ header {
 	height: 36px !important;
 	width: 44px !important;
 	cursor: pointer;
+	@media (max-width: 320px) {
+		padding-right: 1.4rem;
+	}
 }
 
 .form-search {
 	position: relative;
 	margin-right: 2rem;
+	margin-left: 0.8rem;
 	& i {
 		position: absolute;
 		color: #777;
