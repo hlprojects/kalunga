@@ -162,6 +162,11 @@ h2.title {
   justify-content: space-between;
   padding: 0 3rem 0 3rem;
 }
+@media (max-width: 568px) {
+  .funeral-content {
+    padding: 1rem;
+  }
+}
 .funeral-content .bio {
   width: 467px;
   height: 293px;
@@ -221,6 +226,11 @@ h2.title {
   justify-content: space-between;
   margin-top: 3rem;
   padding: 0 3rem 0 3rem;
+}
+@media (max-width: 568px) {
+  .memorial-content {
+    padding: 1rem;
+  }
 }
 @media (max-width: 768px) {
   .memorial-content {
