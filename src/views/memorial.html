@@ -58,13 +58,13 @@
 		</div>
 	</header>
 	<main>
-		<section class="memorial-content">
+		<section class="funeral-content">
 			<div class="bio">
 				<h3 class="title">Biografia</h3>
 				<p>
 					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 				</p>
-				<a href="#" class="expand-bio" >Ver mais</a>
+				<a href="#" class="expand-bio" >Ler mais</a>
 			</div>
 
 			<div class="events">
@@ -75,12 +75,56 @@
 					<li><a href="#">2º Dia do funeral: <span>12/07/2019 - 12h:25</span></a></li>
 					<li><a href="#">2º Dia do funeral: <span>12/07/2019 - 12h:25</span></a></li>
 					<li>
-						<button class="btn-funeral-action waves-effect">Notificar-me</button>
+						<button class="btn-funeral-action waves-effect" title="Notificar-me para o funeral">Notificar-me</button>
 					</li>
 				</ul>
-				
 			</div>
 		</section>
+		
+		<section class="memorial-content">
+			
+			<article class="multimedia">
+				<h2 class="title">Fotos</h2>
+				<div class="fotos">
+			    <img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+					<img src="../img/memorial/walt.jpg" class="materialboxed" width="140" />
+			  </div>
+
+				<div class="video">
+					<video src="../img/memorial/Não seja apenas mais um - Empreendedores (motivacional).mp4" class="video-memorial" controls="controls"></video>
+				</div>
+			</article>
+
+			<article class="condolences">
+				<h2 class="title center-align">Condolências</h2>
+				<div class="suporte">
+					<h3 class="title">Deixe o seu apoio</h3>
+					
+					<form class="form-message">
+						<input type="text" id="username" placeholder="Nome" />
+						<input type="text" id="contact" placeholder="E-mail ou telefone" />
+						<textarea name="message" id="user_message" class="materialize-textarea" placeholder="A sua mensagem..." cols="30" rows="10"></textarea>
+						<div class="call-to-action" style="display: flex; justify-content: space-between; align-items: center;">
+							<label>
+				        <input type="checkbox" class="filled-in" />
+				        <span>Notificar-me para funeral por sms/email</span>
+				      </label>
+				      <button type="button" class="btn-publish kalunga waves-effect">Publicar</button>
+						</div>
+					</form>
+
+				</div>
+			</article>
+
+		</section>
+
 	</main>
 	<footer id="rodape" style="margin-top: 5rem;">
 		
@@ -89,8 +133,7 @@
 	<script src="../../node_modules/materialize-css/dist/js/materialize.min.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
-	    var elems = document.querySelectorAll('.sidenav');
-	    var instances = M.Sidenav.init(elems, function() {});
+	    M.AutoInit();
 	  });
 	</script>
 </body>
