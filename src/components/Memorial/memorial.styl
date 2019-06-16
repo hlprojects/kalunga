@@ -1,3 +1,5 @@
+$box-width = 467px;
+
 .box {
 	border-radius: 10px;
 	background-color: #ffffff;
@@ -60,7 +62,7 @@ button {
 	
 	.bio {
 		@extend .box;
-		width: 467px;
+		width: $box-width;
 		height: 293px;
 		display: flex;
 		flex-direction: column;
@@ -132,11 +134,12 @@ button {
 		
 	.multimedia {
 		
-		width: 467px !important;
+		width: $box-width !important;
 		margin-right: 1rem;
 		
 		.fotos {
 			display: flex;
+			align-items: stretch;
 			flex-wrap: wrap;
 			justify-content: space-between;
 			
@@ -166,16 +169,38 @@ button {
 	
 	.condolences {
 		
+		font-family: arial;
+		font-size: 14px;
+		
+		input[type=text]:focus, textarea:focus {
+	     border-bottom: 1px solid #888 !important;
+	     box-shadow: 0 1px 0 0 #888 !important;
+	   }
+		
 		@media (max-width: 568px) {
 			margin-top: 5rem;
+			width: 100%;
 		}
 		
 		.suporte {
 			@extends .box;
-			max-width: 467px;
+			max-width: $box-width;
 			@media (max-width: 768px) {
 				width: 100%;
 			}
+		}
+		
+		.message-container {
+			@extends .box;
+			margin-top: 4rem;
+			@media (min-width: 568px) {
+				width: $box-width;
+			}
+		}
+		
+		.view-more-messages {
+			float: right;
+			margin-top: 3rem;
 		}
 	}
 	
