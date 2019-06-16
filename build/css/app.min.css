@@ -253,6 +253,12 @@ h2.title {
   border: 5px solid #fff;
   box-shadow: 2px 2px 13px #aaa;
 }
+@media (max-width: 480px) {
+  .memorial-content .multimedia .fotos img {
+    width: 100%;
+    height: 200px;
+  }
+}
 .memorial-content .multimedia .video {
   margin-top: 3rem;
   height: 285px;
