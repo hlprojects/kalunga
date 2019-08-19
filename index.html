@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#999" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="manifest" href="./manifest.json">
+	<meta name="theme-color" content="#999" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="manifest" href="./manifest.json">
 	<link rel="shortcut icon" href="./favicon.ico" />
 	<title>Kalunga - Obituário Online</title>
 	<link rel="stylesheet" href="build/css/materialize.min.css" />
@@ -15,7 +15,7 @@
 </head>
 <body>
 	
-	<header>
+	<header class="bg-img">
 		<nav class="navbar transparent z-depth-0">
 			<button href="#!" data-target="slide-out" class="sidenav-trigger waves-effect btn-menu show-on-large">
 				<i class="material-icons black-text">menu</i>
@@ -29,7 +29,7 @@
 					<option value="Paulo, 33 anos">Benfica</option>
 				</datalist>
 			</form>
-			<button type="button" class="btn-publish waves-effect">Publicar</button>
+			<button onclick="location.href='./src/views/publish.html'" class="btn-publish waves-effect">Publicar</button>
 		</nav>
 		<ul id="slide-out" class="sidenav">
 		  <li><div class="user-view" style="background-color: #333; height: 200px;">
@@ -185,6 +185,7 @@
 	    var elems = document.querySelectorAll('.sidenav');
 	    var instances = M.Sidenav.init(elems, function() {});
 	  });
+
 	</script>
 </body>
 </html>

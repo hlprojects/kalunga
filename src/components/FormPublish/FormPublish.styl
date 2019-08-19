@@ -1,0 +1,48 @@
+.formPublish {
+		
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin: 1rem;
+	
+	@media (min-width: 580px) {
+		width: 40vw;
+		margin: 5rem;
+	}
+	
+	& .description {
+		height: 120px;
+	}
+	
+	& .biografia {
+		height: 150px;
+	}
+	
+	& .boletim-obito {
+		text-align: center;
+		padding: 1rem;
+		border: 1px dashed #bbb;
+	}
+	
+	& .foto-falecido {
+		border: 1px solid #ccc;
+		width: 140px;
+		height: 140px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 1rem;
+		cursor: pointer;
+		&:hover {
+			background-color: #f5f5f5;
+		}
+		& i {
+			font-size: 5em;
+		}
+	}
+	
+	& .btn.publish {
+		margin-top: 1rem;
+	}
+
+	
+}
