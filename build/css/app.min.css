@@ -1,0 +1,430 @@
+@charset 'utf-8';
+blockquote {
+  font-size: 2em;
+  font-family: arial;
+  border-left-color: #333;
+}
+.quote-author {
+  font-size: 1.4em;
+}
+.death-date {
+  font-size: 1.7em;
+  font-weight: bolder;
+}
+.kalunga,
+.btn-menu,
+.btn-publish,
+button {
+  border-radius: 2px !important;
+  background-color: #f2f2f2 !important;
+  border: 1px solid #cacaca !important;
+  box-shadow: 0px 2px 13px #cacaca !important;
+}
+header {
+  background-color: #999;
+  background: url("../../src/img/bg-flowers.jpg") no-repeat;
+ background-size: cover;
+background-repeat: no-repeat;
+  height: 70vh;
+}
+@media (max-width: 568px) {
+  header {
+    background-size: 100% 50vh;
+    height: 50vh;
+  }
+}
+.navbar {
+  padding: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 568px) {
+  .navbar {
+    padding: 1rem;
+  }
+  .navbar .sidenav-trigger {
+    margin: 0 !important;
+  }
+}
+.navbar form {
+  line-height: 0 !important;
+  height: auto !important;
+}
+.navbar i.material-icons {
+  line-height: 0 !important;
+  height: 0 !important;
+}
+.btn-menu {
+  height: 36px !important;
+  width: 44px !important;
+  cursor: pointer;
+}
+@media (max-width: 320px) {
+  .btn-menu {
+    padding-right: 1.4rem;
+  }
+}
+.form-search {
+  position: relative;
+  margin-right: 2rem;
+  margin-left: 0.8rem;
+}
+.form-search i {
+  position: absolute;
+  color: #777;
+  height: 40px !important;
+  top: 20px;
+  left: 5px;
+}
+.input-search {
+  width: 466px !important;
+  margin: 0 !important;
+  height: 39px !important;
+  padding-left: 3.5rem !important;
+  padding-right: 0.5rem !important;
+  font-weight: bold;
+}
+@media (max-width: 568px) {
+  .input-search {
+    width: 50% !important;
+  }
+}
+@media (max-width: 768px) {
+  .input-search {
+    width: 80% !important;
+  }
+}
+.input-search::-webkit-input-placeholder {
+  color: #777;
+}
+.input-search::placeholder {
+  color: #777;
+}
+.btn-publish {
+  width: 101px;
+  height: 39px;
+}
+.box,
+.funeral-content .bio,
+.memorial-content .multimedia .video,
+.memorial-content .condolences .suporte,
+.memorial-content .condolences .message-container {
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 1rem;
+  -moz-box-shadow: 0px 2px 13px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 2px 13px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 13px rgba(0,0,0,0.5);
+  font-size: 14px;
+  font-family: arial;
+}
+.kalunga,
+button {
+  border-radius: 2px !important;
+  background-color: #fff !important;
+  border: 1px solid #cacaca !important;
+  box-shadow: 0px 2px 13px #cacaca !important;
+}
+.memorial {
+  background: url("../../src/img/memorial/paul allen resized.png") no-repeat;
+  background-size: 100%;
+  height: 90vh;
+}
+@media (max-width: 992px) {
+  .memorial {
+    background-size: 100% 70vh;
+  }
+}
+@media (max-width: 568px) {
+  .memorial {
+    background-size: 100% 50vh;
+    height: 50vh;
+  }
+}
+h3.title {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  color: #444;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bold;
+}
+h2.title {
+  color: #393939;
+  font-size: 30px;
+  margin-bottom: 2rem;
+  font-family: 'lucida grande';
+  font-weight: bolder;
+}
+.funeral-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 3rem 0 3rem;
+}
+@media (max-width: 568px) {
+  .funeral-content {
+    padding: 1rem;
+  }
+}
+.funeral-content .bio {
+  width: 467px;
+  height: 293px;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .funeral-content .bio {
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+.funeral-content .bio p {
+  height: 293px;
+  text-align: justify;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+.funeral-content .bio .expand-bio {
+  align-self: flex-end;
+}
+.funeral-content .events {
+  display: flex;
+  flex-direction: column;
+  font-family: arial;
+  font-size: 14px;
+  margin-right: 15.5rem;
+}
+@media (max-width: 1050px) {
+  .funeral-content .events {
+    margin-right: 0;
+  }
+}
+@media (max-width: 768px) {
+  .funeral-content .events {
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+.funeral-content .events .funeral-date li {
+  display: flex;
+  flex-direction: column;
+}
+.funeral-content .events .funeral-date li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.funeral-content .events .btn-funeral-action {
+  width: 118px;
+  height: 39px;
+  color: #444;
+  font-size: inherit;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.memorial-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding: 0 3rem 0 3rem;
+}
+@media (max-width: 568px) {
+  .memorial-content {
+    padding: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .memorial-content {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+.memorial-content .multimedia {
+  width: 467px !important;
+  margin-right: 1rem;
+}
+.memorial-content .multimedia .fotos {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.memorial-content .multimedia .fotos img {
+  margin-bottom: 1rem;
+  
+  box-shadow: 2px 2px 13px #aaa;
+}
+@media (max-width: 480px) {
+  .memorial-content .multimedia .fotos img {
+    width: 100%;
+    height: 200px;
+  }
+}
+.memorial-content .multimedia .video {
+  margin-top: 3rem;
+  height: 285px;
+}
+.memorial-content .multimedia .video video {
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+  bottom: 10px;
+}
+.memorial-content .condolences {
+  font-family: arial;
+  font-size: 14px;
+}
+.memorial-content .condolences input[type=text]:focus,
+.memorial-content .condolences textarea:focus {
+  border-bottom: 1px solid #888 !important;
+  box-shadow: 0 1px 0 0 #888 !important;
+}
+@media (max-width: 568px) {
+  .memorial-content .condolences {
+    margin-top: 5rem;
+    width: 100%;
+  }
+}
+.memorial-content .condolences .suporte {
+  max-width: 467px;
+}
+@media (max-width: 768px) {
+  .memorial-content .condolences .suporte {
+    width: 100%;
+  }
+}
+.memorial-content .condolences .message-container {
+  margin-top: 4rem;
+}
+@media (min-width: 568px) {
+  .memorial-content .condolences .message-container {
+    width: 467px;
+  }
+}
+.memorial-content .condolences .view-more-messages {
+  float: right;
+  margin-top: 3rem;
+}
+html {
+  overflow-x: hidden;
+}
+.nota-falecimento-titulo {
+  font-size: 2em;
+  font-weight: bolder;
+  color: #393939;
+}
+.campas {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+@media (max-width: 1055px) {
+  .campas {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 568px) {
+  .campas {
+    justify-content: center;
+  }
+}
+.campas .nota-falecimento {
+  max-width: 300px;
+  text-align: justify;
+}
+.campas figure {
+  display: inline-table;
+  padding: 0 !important;
+  margin: 0 0 5rem 0;
+}
+.campas .campa {
+  height: 240px;
+  position: relative;
+  background: url("../../src/img/campa-resized.png") no-repeat;
+  background-position: center;
+}
+.campas .campa .name-container {
+  position: absolute;
+  bottom: 1.55rem;
+  left: 2.5rem;
+  text-align: center;
+  width: 75%;
+  text-shadow: 1px -2px #00000061;
+}
+
+.campas .campa img {
+  border-style: solid;
+  border-color: grey;
+  padding: 5px;
+}
+
+
+@media (max-width: 568px) {
+  .campas .campa .name-container {
+    bottom: 1.65rem;
+  }
+}
+.campas .campa .name-container .name {
+  color: #fff;
+  font-weight: bolder;
+}
+#rodape {
+  height: 280px;
+  background-color: #333;
+}
+
+.covers{
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.cover img{
+
+  border-radius: 100px;
+  height: 100px;
+  width: 100px;
+ 
+  border-style: solid;
+  border-color: grey;
+  padding: 5px;
+}
+
+.cover .topN{
+
+  margin-top: -10px;
+}
+
+.swiper1  .swiper-slide{
+
+  width: 130px !important;
+  height:180px;
+
+}
+#fotoProfile{
+  border-radius: 100%;
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  filter: grayscale(100%);
+  margin-left: 50px;
+  margin-top: -130px;
+  border-style: solid;
+  border-color: grey;
+  padding: 5px;
+}
+
+  .swiper3{
+    padding-left: 30px;
+    height: 250px;
+  }
+
+  .swiper3 >.swiper-wrapper{
+    padding-right: 30px !important;
+  }
+  .swiper3 .swiper-slide{
+
+    width: 300px!important;
+    height:200px;
+    
+
+  }

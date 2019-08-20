@@ -1,0 +1,219 @@
+$box-width = 467px;
+
+.box {
+	border-radius: 10px;
+	background-color: #ffffff;
+	padding: 1rem;
+	-moz-box-shadow:    0px 2px 13px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 2px 13px rgba(0,0,0,0.50);
+	box-shadow:         0px 2px 13px rgba(0,0,0,0.50);
+	font-size: 14px;
+	font-family: arial;
+}
+
+.kalunga {
+	border-radius: 2px !important;
+	background-color: #ffffff !important;
+	border: 1px solid #cacaca !important;
+	box-shadow: 0px 2px 13px #cacaca !important;
+}
+
+.memorial {
+	background: url("../../src/img/memorial/paul allen resized.png") no-repeat;
+	background-size: 100%;
+	height: 90vh;
+	@media (max-width: 992px) {
+		background-size: 100% 70vh;
+	}
+ 	@media (max-width: 568px) {
+		background-size: 100% 50vh;
+		height: 50vh;
+	}
+}
+
+h3.title {
+	margin: 0 0 1rem 0;
+	padding: 0;
+	color: #444;
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: bold;
+}
+
+h2.title {
+	color: #393939;
+	font-size: 30px;
+	margin-bottom: 2rem;
+	font-family: 'lucida grande';
+	font-weight: bolder;
+}
+
+button {
+	@extend .kalunga;
+}
+
+
+.funeral-content {
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0 3rem 0 3rem;
+	@media (max-width: 568px) {
+		padding: 1rem;
+	}
+	
+	.bio {
+		@extend .box;
+		width: $box-width;
+		height: 293px;
+		display: flex;
+		flex-direction: column;
+		
+		@media (max-width: 768px) {
+			margin-top: 2rem;
+			width: 100%;
+		}
+
+		p {
+			height: 293px;
+			text-align: justify;
+			overflow-y: hidden; 
+			text-overflow: ellipsis;
+		}
+		
+		.expand-bio {
+			align-self: flex-end;
+		}
+	}
+	
+	.events {
+		display: flex;
+		flex-direction: column;
+		font-family: arial;
+		font-size: 14px;
+		margin-right: 15.5rem;
+		
+		@media (max-width: 1050px) {
+			margin-right: 0;
+		}
+		
+		@media (max-width: 768px) {
+			margin-top: 2rem;
+			width: 100%;
+		}
+		
+		.funeral-date li {
+			display: flex;
+			flex-direction: column;
+			&:not(:last-child) {
+				margin-bottom: 1.5rem;
+			}
+		}
+		
+		.btn-funeral-action {
+			width: 118px;
+			height: 39px;
+			color: #444;
+			font-size: inherit;
+			margin-top: 1rem;
+			cursor: pointer;
+		}
+		
+	}
+	
+}
+
+
+.memorial-content {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3rem;
+	padding: 0 3rem 0 3rem;
+	
+	@media (max-width: 568px) {
+		padding: 1rem;
+	}
+	
+	@media (max-width: 768px) {
+		flex-wrap: wrap;
+		width: 100%;
+	}
+		
+	.multimedia {
+		
+		width: $box-width !important;
+		margin-right: 1rem;
+		
+		.fotos {
+			display: flex;
+			align-items: stretch;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			
+			img {
+				margin-bottom: 1rem;
+				border: 5px solid #fff;
+				box-shadow: 2px 2px 13px #aaa;
+				@media (max-width: 480px) {
+					width: 100%;
+					height: 200px;
+				}
+			}
+		}
+		
+		.video {
+			margin-top: 3rem;
+			height: 285px;
+			// max-width: 100%;
+			
+			@extends .box;
+			video {
+				max-width: 100%;
+				height: 100%;
+				position: relative;
+				bottom: 10px;
+			}
+		}
+		
+	}
+	
+	
+	.condolences {
+		
+		font-family: arial;
+		font-size: 14px;
+		
+		input[type=text]:focus, textarea:focus {
+	     border-bottom: 1px solid #888 !important;
+	     box-shadow: 0 1px 0 0 #888 !important;
+	   }
+		
+		@media (max-width: 568px) {
+			margin-top: 5rem;
+			width: 100%;
+		}
+		
+		.suporte {
+			@extends .box;
+			max-width: $box-width;
+			@media (max-width: 768px) {
+				width: 100%;
+			}
+		}
+		
+		.message-container {
+			@extends .box;
+			margin-top: 4rem;
+			@media (min-width: 568px) {
+				width: $box-width;
+			}
+		}
+		
+		.view-more-messages {
+			float: right;
+			margin-top: 3rem;
+		}
+	}
+	
+}

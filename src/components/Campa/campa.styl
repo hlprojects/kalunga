@@ -1,0 +1,59 @@
+html {
+	overflow-x: hidden;
+}
+
+.nota-falecimento-titulo {
+	font-size: 2em; 
+	font-weight: bolder; 
+	color: #393939;
+}
+
+.campas {
+	
+	display: flex; 
+	justify-content: space-around;
+	margin-bottom: 2rem;
+	
+	@media (max-width: 1055px) { /* 992px - Overflow-x: hidden*/
+		flex-wrap: wrap;
+	}
+	
+	@media (max-width: 568px) {
+		justify-content: center;
+	}
+	
+	.nota-falecimento {
+		max-width: 300px; 
+		text-align: justify;
+	}
+	
+	& figure {
+		display: inline-table;
+		padding: 0 !important;
+		margin: 0 0 5rem 0;
+		
+	}
+	
+	& .campa {
+		height: 240px;
+		position: relative;
+		background: url('../../src/img/campa-resized.png') no-repeat;
+		background-position: center;
+		& .name-container {
+			position: absolute;
+			bottom: 1.55rem;
+			left: 2.5rem;
+			text-align: center;
+			width: 75%;
+			@media (max-width: 568px) {
+				bottom: 1.65rem;
+			}
+			
+			& .name {
+				color: #fff;
+				font-weight: bolder;
+			}
+			
+		}
+	}
+}
