@@ -21,7 +21,7 @@
 
 		<?php 
 
-			include 'auto.php';
+			
 
 			include 'navBar.php';
 		 ?>
@@ -186,24 +186,12 @@
 				     </div>
 				   	</div>
 
-				   	<br><br>
-
-				<header style='height: 70vh;background-size: cover!important;background-repeat: no-repeat!important;background: url("src/img/funeral_cemiterio_enterro_1.jpg ");'>
-					<div class="quotes center-align">
-						<br><br><br><br><br><br><br><br><br>
-						<blockquote style="text-shadow: -2px -1px black;" class="white-text">
-							"Chore a vontade, deixe o resto conosco"
-						</blockquote>
-						
-					</div>
-				</header>
-				
 				<section id="initSection">
 					<h1 class="center-align nota-falecimento-titulo">Notas de falecimento</h1>
 					<div class="campas">
 						<figure>
 							<!-- <img src="./src/img/campa 400x300.png" alt="Imagem de uma campa"> -->
-							<a href="./src/views/memorial.html">
+							<a href="./src/views/memorial.php?id=8">
 								<div class="campa">
 									<img src="media/photos/1.png" style="position: absolute; left: 90px; top: 52px; -webkit-filter: grayscale(100%); filter: grayscale(100%); border-radius: 100%;" width="120" alt="Some" />
 									<div class="name-container">
@@ -283,18 +271,7 @@
 				  
 
 
-    
-			<header style='height: 50vh;background-size: cover!important;background-repeat: no-repeat!important;background: url("src/img/1423966259_683178_1423967384_noticia_normal.jpg");'>
-				<div class="quotes center-align">
-					<br><br><br><br><br><br>
-					<blockquote style="text-shadow: -2px -1px black;" class="white-text">
-						"Nós o ajudamos a superar cada obstáculo"
-					</blockquote>
-					
-				</div>
-			</header>
 
-			<br><br><br><br>
 
 
 
@@ -324,10 +301,10 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Páginas</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Memoriai</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Doações</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Livros</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Serviços</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!"></a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!"></a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!"></a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!"></a></li>
                 </ul>
               </div>
             </div>

@@ -43,31 +43,25 @@
 </head>
 <body>
 
-
 	<div class="navbar-fixed">
 	<ul id="dropdown1" class="dropdown-content">
-	  <li><a href="#!">Alter</a></li>
+	  <li><a href="#!">Alterar</a></li>
 	  <li><a href="#!">Terminar</a></li>
 	</ul>
 	  <nav class="z-depth-1 " style="background-color: #0e0e0e !important">
 	    <div class="nav-wrapper">
 	      <a href="#" class="brand-logo center"><strong>Kalunga</strong></a>
-	      <ul id="nav-mobile" class="left hide-on-med-and-down">
-	        <li><a href="sass.html"></a></li>
-	        <li><a href="badges.html">Serviços</a></li>
-	        <li><a href="collapsible.html">Doações</a></li>
-	        <li><a href="badges.html">Livros</a></li>
-	        <li><a href="collapsible.html">Memoriais</a></li>
-	      </ul>
+
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-	        <li><a href="sass.html">Entar</a></li>
-	        <li><a href="badges.html">Criar conta</a></li>
+	        <li><a href="signIn.php">Entar</a></li>
+	        <li><a href="signUp.php">Criar conta</a></li>
 	         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Edvânio Januário<i class="material-icons right">arrow_drop_down</i></a></li>
     
 	      </ul>
 	    </div>
-	  </nav>	
-</div>
+	  </nav>		
+	</div>
+
 	<header class='memorial'   <?php echo "style='height: 60vh; background: url(../../media/photos/".$capa.");background-repeat: no-repeat;background-size: cover'"; ?>>
 		<nav class="navbar transparent z-depth-0">
 					<button href="#!" data-target="slide-out" style="background-color: transparent !important; box-shadow: none!important;border:none !important" class="sidenav-trigger waves-effect btn-menu show-on-large">

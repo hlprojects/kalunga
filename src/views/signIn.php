@@ -35,12 +35,8 @@
 		<h1 style="color: white"><strong>Kalunga</strong></h1><br>
 	    <form action="../../V1/conta/post/index.php" method="post">
 	      <div class="card-content">
-	        <span class="card-title" style="color: white">Registo, introduza seus credencias:</span>
+	        <span class="card-title" style="color: white">Login, introduza seus credencias:</span>
 	        <div class="row">
-	          <div class="input-field col s12">
-	            <label for="nome">Nome</label>
-	            <input type="text" placeholder="Seu nome" class="validate" name="nome" id="nome" />
-	          </div>
 	          <div class="input-field col s12">
 	            <label for="email">Email ou telefone</label>
 	            <input type="email" placeholder="Seu contacto" class="validate" name="email" id="email" />
@@ -55,7 +51,7 @@
 
 	        <input style="color: white" type="reset" id="reset" class="btn-flat grey-text waves-effect">
 
-	        <input style="font-weight: bold!!important;"  type="submit" class="btn green waves-effect waves-light" value="Registar">
+	        <input style="font-weight: bold!!important;"  type="submit" class="btn green waves-effect waves-light" value="Entrar">
 	      </div>
 	    </form>
 	  </div>
