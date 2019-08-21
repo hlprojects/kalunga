@@ -18,7 +18,7 @@
 			    if (isset($_SESSION['idUserPersona'])) {
 			    	echo '<li><a class="dropdown-trigger" href="#!" data-target="dropdown1">'.$_SESSION['nome'].'<i class="material-icons right">arrow_drop_down</i></a></li>';
 			    }else{
-			    	echo '<li><a href="src/views/signIn.php">Entar</a></li>
+			    	echo '<li><a href="src/views/signIn.php">Entrar</a></li>
 				          <li><a href="src/views/signUp.php">Criar conta</a></li>
 			  			';
 			    }
