@@ -4,6 +4,7 @@
   "description": "Kalunga is an online obituary",
   "main": "index.js",
   "scripts": {
+    "compile:stylus": "stylus src/components/_all.styl -c -w -o build/css/app.min.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
