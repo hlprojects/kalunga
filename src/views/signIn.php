@@ -33,17 +33,17 @@
 	
 	  <div class="col  s10 pull-s1 m6 pull-m3 l4 pull-l4">
 		<h1 style="color: white"><strong>Kalunga</strong></h1><br>
-	    <form action="../../V1/conta/post/index.php" method="post">
+	    <form action="../../V1/conta/validacao/index.php" method="post">
 	      <div class="card-content">
 	        <span class="card-title" style="color: white">Login, introduza seus credencias:</span>
 	        <div class="row">
-	          <div class="input-field col s12">
+	          <div class="col s12">
 	            <label for="email">Email ou telefone</label>
-	            <input type="email" placeholder="Seu contacto" class="validate" name="email" id="email" />
+	            <input type="email" placeholder="Seu contacto" class="validate textWhite" name="email" id="email" />
 	          </div>
-	          <div class="input-field col s12">
+	          <div class="col s12">
 	            <label for="password">Senha </label>
-	            <input placeholder="Sua senha" type="password" class="validate" name="password" id="password" />
+	            <input placeholder="Sua senha" type="password" class="validate textWhite" name="password" id="password" />
 	          </div>
 	        </div>
 	      </div>

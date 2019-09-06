@@ -3,16 +3,13 @@
 
 	 include "../../../connect.php";
 
+	 session_start();
 
-echo "INSERT INTO `condolencia`(`idMemorial`, `idPersona`, `texto`, `parentesco`, `nome`, `notificacao`) VALUES ('".$_POST['id']."','".$_POST['contact']."','".$_POST['user_message']."','".$_POST['parentesco']."','".$_POST['username']."','".$_POST['notify']."')";
-
-	$prepa = $conn->prepare("INSERT INTO `condolencia`(`idMemorial`, `idPersona`, `texto`, `parentesco`, `nome`, `notificacao`) VALUES ('".$_POST['id']."','".$_POST['contact']."','".$_POST['user_message']."','".$_POST['parentesco']."','".$_POST['username']."','".$_POST['notify']."')");
+	$prepa = $conn->prepare("INSERT INTO `condolencia`(`idMemorial`, `idPersona`, `texto`, `parentesco`) VALUES ('".$_POST['id']."','".$_SESSION['idUserPersona']."','".$_POST['message']."','".$_POST['parentesco']."')");
 
 
     if ($prepa->execute()) {
-	    while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){
-	       	
-	    } echo 1;    	
+		 echo 1;    	
     }else{
     	echo "404";
     }

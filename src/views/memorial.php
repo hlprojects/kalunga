@@ -37,30 +37,74 @@
 	        }
 	      }); 
 
-		}		
+		}	
+
+		function UploadFoto() {
+
+			var fileInput = document.getElementById('fileFoto');
+		    var fileBinary = fileInput.files[0];
+		 
+		    var data = new FormData();
+
+		    data.append('file',fileBinary);
+
+		    data.append('id',<?php echo $id; ?> );
+
+
+		    var config = {
+		      onUploadProgress: function(progressEvent) {
+		        var percentCompleted = Math.round( (progressEvent.loaded * 100) / progressEvent.total );    
+		      }
+		    };
+
+		    axios.post('../../V1/memorial/foto/index.php',data,config)
+		      .then(function (res) {
+
+		        if (res.data == "1") {
+		        	location.reload();
+		        }
+
+		      })
+		      .catch(function (err) {
+		        console.log(res.data);
+		      });					
+		}	
 
 	</script>
 </head>
 <body>
 
-	<div class="navbar-fixed">
+<div class="navbar-fixed">
 	<ul id="dropdown1" class="dropdown-content">
-	  <li><a href="#!">Alterar</a></li>
-	  <li><a href="#!">Terminar</a></li>
+		<li><a href="#!">Alterar</a></li>
+		<li><a href="src/views/signOut.php">Terminar</a></li>
 	</ul>
-	  <nav class="z-depth-1 " style="background-color: #0e0e0e !important">
-	    <div class="nav-wrapper">
-	      <a href="#" class="brand-logo center"><strong>Kalunga</strong></a>
+	<nav class="z-depth-3 " style="background-color: #191919  !important">
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo center"><img style="margin-top: 10px" height="40" src="..//img/logo.png"> </a>
 
-	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-	        <li><a href="signIn.php">Entar</a></li>
-	        <li><a href="signUp.php">Criar conta</a></li>
-	         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Edvânio Januário<i class="material-icons right">arrow_drop_down</i></a></li>
-    
-	      </ul>
-	    </div>
-	  </nav>		
-	</div>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+
+				<?php 
+					
+					session_start();
+					if (isset($_SESSION['idUserPersona'])) {
+						echo '<li><a class="dropdown-trigger" href="#!" data-target="dropdown1">'.$_SESSION['nome'].'<i class="material-icons left">person</i></a></li>
+							<li><a  href="src/views/memoriais.php" ><i class="material-icons left">fingerprint</i>Memoriais </a></li>';
+					}else{
+						echo '<li><a href="src/views/signIn.php"><i class="material-icons left">person</i>Entrar</a></li>
+								<li><a href="src/views/signUp.php"><i class="material-icons left">cloud</i>Criar conta</a></li>
+								
+							';
+					}
+							
+				?>  
+
+			</ul>
+
+		</div>
+	</nav>		
+</div>
 
 	<header class='memorial'   <?php echo "style='height: 60vh; background: url(../../media/photos/".$capa.");background-repeat: no-repeat;background-size: cover'"; ?>>
 		<nav class="navbar transparent z-depth-0">
@@ -70,11 +114,11 @@
 
 					<form method="get" class="form-search">
 						
-						<input style="color: grey; border-radius: 20px!important;box-shadow: none!important;padding-left: 20px!important" value=<?php echo '@'.$tag; ?>  type="search"  id="search" class="kalunga input-search"  />
+						<input disabled="disabled" style="color: grey; border-radius: 20px!important;box-shadow: none!important;font-weight: bold; padding-left: 20px!important" value=<?php echo '@'.$tag; ?>  type="search"  id="search" class="kalunga input-search"  />
 		
 					</form>
 
-					<button type="button" style="border-radius: 20px!important;" class="btn-publish waves-effect"><a href="src/views/post.html" style="color:#424242!important"> <strong>Publicar</strong></a></button>
+					<button type="button" style="border-radius: 20px!important;" class="btn-publish waves-effect"><a href="src/views/post.html" style="color:#424242!important"> <strong>Editar</strong></a></button>
 		</nav>
 		<ul id="slide-out" class="sidenav">
 		  <li><div class="user-view" style="background-color: #333; height: 200px;">
@@ -96,7 +140,7 @@
 		  <li><a href="#!" class="sidenav-close">Fechar o menu</a></li>
 		</ul>
 		<div class="quotes center-align">
-			
+			<br><br><br>
 			<h3 class="white-text"><strong><?php echo $nome; ?></strong></h3>
 			<div class="death-date white-text">1955 - 2011</div>
 		</div>
@@ -133,10 +177,15 @@
 				<ul class="funeral-date">
 					<li><a href="#">Local Funebre: <?php  echo $local_funebre; ?> </a></li>
 					<li><a href="#">1º Dia do funeral: <span> <?php  echo $data_funeral; ?> </span></a></li>
-					<li><a href="#">2º Dia do funeral: <span> <?php  echo $data_funeral_2; ?> </span></a></li>
-					<li><a href="#">2º Dia do funeral: <span> <?php  echo $data_funeral_3; ?> </span></a></li>
+			
 					<li>
-						<button class="btn-funeral-action waves-effect" title="Notificar-me para o funeral">Notificar-me</button>
+					<form method="post" action="../../V1/memorial/notificacao/index.php">
+						<input type="text" style="display: none;" name="id" value = <?php echo $id ?> >
+						<input type="submit" class="btn-funeral-action waves-effect" title="Notificar-me para o funeral" value="Notificar-me">
+
+						
+					</form>
+						
 					</li>
 				</ul>
 			</div>
@@ -148,9 +197,26 @@
 				<h2 class="title">Fotos</h2>
 				<div class="fotos">
 
+				<?php 
+
+					if (isset($_SESSION['idUserPersona'])) {
+						
+						echo '<label for="fileFoto">
+			                      <div class="card">
+			                        <div style="filter: grayscale(100%);" class="card-image">
+			                          <img src="../../media/photos/blank.png">
+			                          <spana style="font-weight: bold;" class="card-title">Carregar<i class="material-icons right" style="margin-top: 10px;margin-left: 0px;">add</i></span>
+			                        </div>
+			                      </div>
+			                  </label>';
+
+ 					}
+				 ?>	                	
+				 <input type="file" style="display: none;" onchange="UploadFoto()" id="fileFoto">
+
 					<?php 
 
-					    $prepa = $conn->prepare("select * from fotos where idMemorial =".$id);
+					    $prepa = $conn->prepare("select * from foto where idMemorial =".$id);
 					    $prepa->execute();
 					    while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){ 
 			    			echo '<img src="../../media/photos/'.$linha['foto'].'" class="materialboxed" width="140" height="140" />';
@@ -170,38 +236,28 @@
 
 			<article class="condolences">
 				<h2 class="title center-align">Condolências</h2>
-				<div class="suporte">
-					<h3 class="title">Deixe o seu apoio</h3>
+				<div class="card">
 					
-					<form class="form-message">
-						<input type="text" id="username" placeholder="Nome" />
-						<input type="text" id="contact" placeholder="E-mail ou telefone" />
-						<select id ="parentesco">
-							<option value="1">Irmao</option>
-							<option value="2">Tio</option>
-							<option value="3">pae/mãe</option>
-						</select>
-						<textarea name="message" id="user_message" class="materialize-textarea" placeholder="A sua mensagem..." cols="30" rows="10"></textarea>
-						<div class="call-to-action" style="display: flex; justify-content: space-between; align-items: center;">
-							<label>
-				        <input type="checkbox" id="notify" class="filled-in" />
-				        <span>Notificar-me para funeral por sms/email</span>
-				      </label>
-				      <button type="button" onclick="post_condolencia()" class="btn-publish kalunga waves-effect">Publicar</button>
-						</div>
-					</form>
+				<?php 
 
-				</div>
+					if (isset($_SESSION['idUserPersona'])) {
+						include 'condolencia/postar.php';
+					}else{
+						include 'condolencia/logar.php';
+					}
+
+				 ?>			
 
 					<?php 
 
-					    $prepa = $conn->prepare("select * from condolencia where idMemorial =".$id);
+					    $prepa = $conn->prepare("select condolencia.texto,condolencia.data , persona.nome from condolencia,persona where persona.id = condolencia.idPersona  and idMemorial =".$id);
 					    $prepa->execute();
 					    while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){ 
 			    			echo '<div class="message-container">
 									<p>'.$linha['texto'].'</p>
 									<span>
 										<b>'.$linha['nome'].'</b>
+										'.$linha['data'].'
 									</span>
 								</div>';
 		
@@ -263,7 +319,7 @@
 
 	<!-- <script src="../../node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
 	<script src="../../build/materialize.min.js"></script>
-	<script src="../../build/jquery.min.js"></script>
+	<script src="../../build/axios.min.js"></script>
 	<script src="../../build/swiper.min.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {

@@ -1,8 +1,11 @@
 <?php 
 
-    ob_start();
-    session_start();
-  
+
+   
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }       
+   
     include 'V1/connect.php';
 
     $idUser = 0;
@@ -25,7 +28,7 @@
 
             $_SESSION['idUser'] = $linha['id'];
             $idUser = $linha['id'];
-            setcookie('idUser',$linha['id']);
+            //setcookie('idUser',$linha['id']);
                                       
         }                
     }

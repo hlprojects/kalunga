@@ -7,23 +7,18 @@ html {
 	font-weight: bolder; 
 	color: #393939;
 }
+.align-center{
+	 text-align: center;
+}
 
 .campas {
 	
-	display: flex; 
-	justify-content: space-around;
+
+	text-align:center;
 	margin-bottom: 2rem;
 	
-	@media (max-width: 1055px) { /* 992px - Overflow-x: hidden*/
-		flex-wrap: wrap;
-	}
-	
-	@media (max-width: 568px) {
-		justify-content: center;
-	}
-	
 	.nota-falecimento {
-		max-width: 300px; 
+		width: 300px; 
 		text-align: justify;
 	}
 	
@@ -35,6 +30,7 @@ html {
 	}
 	
 	& .campa {
+
 		height: 240px;
 		position: relative;
 		background: url('../../src/img/campa-resized.png') no-repeat;
@@ -56,4 +52,8 @@ html {
 			
 		}
 	}
+}
+
+.card-title{
+	font-weight: bold  !important
 }

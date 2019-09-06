@@ -11,12 +11,9 @@
     $data_funeral = ''; 
     $bibliografia = ''; 
     $capa = ''; 
-    $condolencia = ''; 
     $id = '';
-    $data_funeral_2 = ''; 
-    $data_funeral_3 = ''; 
     $local_funebre = ''; 
-    $video_url = ''; 
+    $descricao = ''; 
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -38,11 +35,8 @@
                 $data_funeral = $linha['data_funeral']; 
                 $bibliografia = $linha['bibliografia']; 
                 $capa = $linha['capa']; 
-                $condolencia = $linha['condolencia'];  
-                $data_funeral_2 = $linha['data_funeral_2'];
-                $data_funeral_3 = $linha['data_funeral_3']; 
                 $local_funebre = $linha['local_funebre'];
-                $video_url = $linha['video_url'];              
+                $descricao = $linha['descricao'];           
             }else{
                 echo "";
                 //saida para o ajax
