@@ -11,7 +11,7 @@
     if ($prepa->execute()) {
         while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){
 
-            echo '<div class="col s6 m2">
+            echo '<div class="col s6 m6">
                     <a  href="memorial.php?id='.$linha['id'].'" >
                       <div class="card">
                         <div style="filter: grayscale(100%);" class="card-image">

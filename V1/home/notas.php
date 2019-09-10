@@ -15,7 +15,7 @@
           echo "<figure>
                     <a href='src/views/memorial.php?id=$id'>
                       <div class='campa'>
-                        <img src='media/photos/$foto' style='position: absolute; left: 90px; top: 52px; -webkit-filter: grayscale(100%); filter: grayscale(100%); border-radius: 100%;' width='120' alt='Some' />
+                        <img src='media/photos/$foto' style='position: absolute; left: 90px; top: 52px; -webkit-filter: grayscale(100%); filter: grayscale(100%); border-radius: 100%;' width='120' height='120' alt='Some' />
                         <div class='name-container'>
                           <span class='name'>$nome</span>
                         </div>
