@@ -29,7 +29,7 @@
 
 			<button href="#!" data-target="slide-out"  class="sidenav-trigger waves-effect btn-menu show-on-large"><i  class="material-icons black-text">menu</i></button>
 
-			<form method="get" action="src/views/pesquisa.php" class="form-search">
+			<form method="get" action="src/views/memorias/pesquisa.php" class="form-search">
 				<i  class="material-icons">search</i>
 				<input   type="search"  list="datalist-name" id="search" class="kalunga input-search" name="query" placeholder="Pesquisar..." />
 				
@@ -37,7 +37,7 @@
 				</datalist>
 			</form>
 
-			<a href="src/views/publicar.php" style=""><button type="button"  class="btn-publish waves-effect"> <strong>Publicar</strong></button></a>
+			<a href="src/views/memorial/publicar" style=""><button type="button"  class="btn-publish waves-effect"> <strong>Publicar</strong></button></a>
 		</nav>
 
 		<ul id="slide-out" class="sidenav">

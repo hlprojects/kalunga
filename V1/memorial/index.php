@@ -1,63 +1,47 @@
 <?php 
 
 
-	 include "../connect.php";
+    include "connect.php";
 
+    $nome = '';
+    $tag = '';
+    $foto = '';
+    $data_die = ''; 
+    $data_nascimento = ''; 
+    $data_funeral = ''; 
+    $bibliografia = ''; 
+    $capa = ''; 
+    $id = '';
+    $local_funebre = ''; 
+    $descricao = ''; 
 
-    $randomName = '';
-    $randomFullName = '';
-
-    $exploder = explode('.', $_FILES["file"]["name"]);
-
-    $type =  strtolower(end($exploder));
-
-    $pathFile = '../../media/photos/'; 
-
-    if (isset($_FILES["file"])) {
-
-        do{
-            $randomName = (rand() + time());
-            $randomFullName =$pathFile . $randomName.'.'.$type;
-
-        }while (file_exists($randomFullName));
-
-        move_uploaded_file($_FILES["file"]["tmp_name"],$randomFullName);
-
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }else{
+        $id =  $_POST['id'];
     }
 
-
-    $randomName1 = '';
-    $randomFullName1 = '';
-
-    $exploder1 = explode('.', $_FILES["capa"]["name"]);
-
-    $type1 =  strtolower(end($exploder1));
-
-    $pathFile1 = '../../media/photos/'; 
-
-    if (isset($_FILES["capa"])) {
-
-        do{
-            $randomName1 = (rand() + time());
-            $randomFullName1 =$pathFile1 . $randomName1.'.'.$type1;
-
-        }while (file_exists($randomFullName1));
-
-        move_uploaded_file($_FILES["capa"]["tmp_name"],$randomFullName1);
-
-    }
-
-
-    $tag = str_replace(' ','', $_POST['nome']);
-
-	$prepa = $conn->prepare("INSERT INTO `memorial`( `nome`, `data_die`, `data_nascimento`, `bibliografia`,  `telefone`,`foto`,`tag`,`capa`) VALUES ('".$_POST['nome']."','".$_POST['data_morte']."','".$_POST['data_morte']."','".$_POST['bibliografia']."','".$_POST['contacto']."','".$randomName.".".$type."','".$tag.$_POST['year']."','".$randomName1.".".$type1."')");
+    $prepa = $conn->prepare("select * from memorial where id =".$id);
 
     if ($prepa->execute()) {
-	    while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){
-	       	
-	    } echo 1;    	
-    }else{
-    	echo "404";
+        while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){
+
+            if (isset($_GET['id'])) {
+                $nome = $linha['nome'];
+                $tag = $linha['tag'];
+                $foto = $linha['foto'];
+                $data_die = $linha['data_die']; 
+                $data_nascimento = $linha['data_nascimento']; 
+                $data_funeral = $linha['data_funeral']; 
+                $bibliografia = $linha['bibliografia']; 
+                $capa = $linha['capa']; 
+                $local_funebre = $linha['local_funebre'];
+                $descricao = $linha['descricao'];           
+            }else{
+                echo "";
+                //saida para o ajax
+            }           
+        }       
     }
                    
- ?>
+ ?> 

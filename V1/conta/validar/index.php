@@ -4,7 +4,13 @@
 
     session_start();
     
-    $prepa = $conn->prepare("select * from persona where `email` = '".$_POST['email']."' and  `senha`='".$_POST['password']."' order by id desc limit 1");
+    $prepa = $conn->prepare("
+        SELECT * 
+        FROM persona
+        WHERE 
+            `email` = '".$_POST['email']."' AND  
+            `senha` = '".$_POST['password']."'
+         ORDER BY id DESC LIMIT 1");
 
     if ($prepa->execute()) {  
            
@@ -19,7 +25,11 @@
             setcookie('UID',$linha['id'],$expire);
     
             header('Location:../../../index.php');
+
+            exit();
         }
+
+        header('Location:../../../src/views/conta/signIn.php?error=1');
       	
     }else{
     	echo "404";

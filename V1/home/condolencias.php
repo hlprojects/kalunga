@@ -1,7 +1,7 @@
 <?php 
 
 
-    include "connect.php";
+    include(dirname(__FILE__) . '/../connect.php');
 
 
     $prepa = $conn->prepare("select condolencia.*,memorial.nome from condolencia,memorial where condolencia.idMemorial in (select id from memorial where  idPersona=".$_SESSION['idUserPersona'].") and   condolencia.idMemorial=memorial.id");

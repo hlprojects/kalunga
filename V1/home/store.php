@@ -1,6 +1,11 @@
 <?php 
 
-    include "connect.php";
+    //$dir = basename(__DIR__);
+    //str_replace('\\', '/', $dir);
+    //echo (string)($dir);
+    //include $dir."..\connect.php";
+
+    include(dirname(__FILE__) . '/../connect.php');
 
     $IdUser = 0 ;
 
@@ -24,10 +29,7 @@
                       <p class="center-align"><img style="-webkit-filter: grayscale(100%); filter: grayscale(50%);" src="media/photos/'.$linha['foto'].'"></p>
                       <p class="topN center-align"><strong>'.$linha['nome'].'</strong></p>
                     </a>
-                  </div>';
-
-            
-                       
+                  </div>';                        
         }       
     }
                    
