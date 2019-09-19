@@ -1,7 +1,6 @@
 <?php 
 
-
-    include "connect.php";
+    include(dirname(__FILE__) . '/../../connect.php');
 
     $nome = '';
     $foto = '';
@@ -15,7 +14,7 @@
                     <a  href="memorial.php?id='.$linha['id'].'" >
                       <div class="card">
                         <div style="filter: grayscale(100%);" class="card-image">
-                          <img src="../../media/photos/'.$linha['foto'].'">
+                          <img src="../../../media/photos/'.$linha['foto'].'">
                           <spana style="text-shadow: 2px 2px black;" class="card-title">'.$linha['nome'].'</span>
                         </div>
                       </div>

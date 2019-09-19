@@ -10,15 +10,15 @@
 	<link rel="shortcut icon" href="../../favicon.ico" />
 	<title>Memorial Paul Allen | Kalunga</title>
 	<!-- <link rel="stylesheet" href="../../node_modules/materialize-css/dist/css/materialize.min.css" /> -->
-	<link rel="stylesheet" href="../../build/css/materialize.min.css" />
-	<link rel="stylesheet" href="../../build/css/app.min.css" />
-	<link rel="prefetch" href="../../src/img/bg-flowers.jpg" />
-	<link href="../../build/material/material-icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../../build/css/materialize.min.css" />
+	<link rel="stylesheet" href="../../../build/css/app.min.css" />
+	<link rel="prefetch" href="../../../src/img/bg-flowers.jpg" />
+	<link href="../../../build/material/material-icons.css" rel="stylesheet">
 
 </head>
 <body>
 
-	<?php $initPath = '../../'; include '../../navBar.php'; ?>
+	<?php $initPath = '../../../'; include '../../../navBar.php'; ?>
 
 	<main>
 
@@ -28,18 +28,18 @@
 			<br>
 
 			<div class="row">
-				<?php  include '../../V1/memoriais/pesquisa/index.php';?>
+				<?php  include '../../../V1/memoriais/pesquisa/index.php';?>
 			</div>
 
 		</section>
 	</main>
 
-	<?php include '../../footer.php'; ?>
+	<?php include '../../../footer.php'; ?>
 
-	<!-- <script src="../../node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
-	<script src="../../build/jquery.min.js"></script>
-	<script src="../../build/materialize.min.js"></script>
-	<script src="../../build/swiper.min.js"></script>
+	<!-- <script src="../../../node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
+	<script src="../../../build/jquery.min.js"></script>
+	<script src="../../../build/materialize.min.js"></script>
+	<script src="../../../build/swiper.min.js"></script>
 
 	<script>
 		$(".dropdown-trigger").dropdown();

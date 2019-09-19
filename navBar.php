@@ -18,7 +18,7 @@
 							<li><a  href="'.$initPath.'src/views/memoriais" ><i class="material-icons left"></i>Memoriais </a></li>';
 					}else{
 						echo '<li><a href="'.$initPath.'src/views/conta/signIn.php"><i class="material-icons left">person</i>Entrar</a></li>
-								<li><a href="'.$initPath.'src/views/conta/signUp.php"><i class="material-icons left"></i>Criar conta</a></li>
+							<li><a href="'.$initPath.'src/views/conta/signUp.php"><i class="material-icons left"></i>Criar conta</a></li>
 							';
 					}			
 				?>  

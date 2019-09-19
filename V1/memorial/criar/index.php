@@ -90,7 +90,7 @@
 
 	    while($linha = $prepa2->fetch(PDO::FETCH_ASSOC)){
 
-            header('Location:../../../src/views/memorial.php?id='.$linha['id']);
+            header('Location:../../../src/views/memorial/?id='.$linha['id']);
 	    }
 
     }else{

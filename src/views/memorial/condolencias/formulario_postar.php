@@ -1,5 +1,5 @@
 					<h3 class="title">Deixe o seu apoio</h3>
-					<form class="form-message" method="post" action="../../V1/memorial/condolencia/post/index.php">
+					<form class="form-message" method="post" action="../../../V1/memorial/condolencias/adicionar/index.php">
 
 
 						<select name ="parentesco">

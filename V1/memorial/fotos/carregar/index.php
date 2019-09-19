@@ -1,6 +1,6 @@
 <?php 
 
-	include "../../connect.php";
+	include "../../../connect.php";
 
     $randomName = '';
     $type = '';
@@ -9,7 +9,7 @@
         $randomFullName = '';
         $exploder = explode('.', $_FILES["file"]["name"]);
         $type =  strtolower(end($exploder));
-        $pathFile = '../../../media/photos/'; 
+        $pathFile = '../../../../media/photos/'; 
         do{
             $randomName = (rand() + time());
             $randomFullName =$pathFile . $randomName.'.'.$type;
