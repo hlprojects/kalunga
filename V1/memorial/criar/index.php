@@ -11,11 +11,18 @@
     $type1 = '';
     $type2 = '';
 
+    $UserCad = 0;
+
+    if (isset($_SESSION['idUserPersona'])) {
+        $UserCad = $_SESSION['idUserPersona'];
+    }
+
     if (isset($_FILES["file"])) {
         $randomFullName = '';
         $exploder = explode('.', $_FILES["file"]["name"]);
         $type =  strtolower(end($exploder));
         $pathFile = '../../../media/photos/'; 
+
         do{
             $randomName = (rand() + time());
             $randomFullName =$pathFile . $randomName.'.'.$type;
@@ -28,6 +35,7 @@
         $exploder1 = explode('.', $_FILES["capa"]["name"]);
         $type1 =  strtolower(end($exploder1));
         $pathFile1 = '../../../media/photos/'; 
+
         do{
             $randomName1 = (rand() + time());
             $randomFullName1 =$pathFile1 . $randomName1.'.'.$type1;
@@ -39,7 +47,8 @@
         $randomFullName2 = '';
         $exploder2 = explode('.', $_FILES["boletim_k"]["name"]);
         $type2 =  strtolower(end($exploder2));
-        $pathFile2 = '../../../media/files/'; 
+        $pathFile2 = '../../../media/files/';
+
         do{
             $randomName2 = (rand() + time());
             $randomFullName2 =$pathFile2 . $randomName2.'.'.$type2;
@@ -63,7 +72,6 @@
             `boletim`,
             `descricao`,
             `idPersonaCad`
-
         ) VALUES (
             '".$_POST['nome_k']."',
             '".$_POST['data_morte_k']."',
@@ -76,7 +84,7 @@
             '".$_POST['local_funeral_k']."',
             '".$randomName2.".".$type2."',
             '".$_POST['descricao_k']."',
-            '".$_SESSION['idUserPersona']."'
+            '".$UserCad."'
         )");
     
     if ($prepa->execute()) {  
@@ -90,7 +98,13 @@
 
 	    while($linha = $prepa2->fetch(PDO::FETCH_ASSOC)){
 
-            header('Location:../../../src/views/memorial/?id='.$linha['id']);
+            setcookie('memorialCadProgress',$linha['id']);
+
+            if (isset($_SESSION['idUserPersona'])) {
+                header('Location:../../../src/views/memorial/?id='.$linha['id']);
+            }else{
+                header('Location:../../../src/views/conta/signUp.php?p='.$linha['id']);
+            }
 	    }
 
     }else{

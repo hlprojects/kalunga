@@ -1,6 +1,5 @@
 <?php 
 
-
 	 include "../../../connect.php";
 
 	 session_start();
@@ -9,9 +8,13 @@
 
 
     if ($prepa->execute()) {
-		 echo 1;    	
+		 echo '
+			<script type="text/javascript">
+				window.history.back();
+			</script>
+		 ';    	
     }else{
-    	echo "404";
+    	
     }
                    
  ?>

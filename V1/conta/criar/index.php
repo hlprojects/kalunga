@@ -3,6 +3,7 @@
 	include "../../connect.php";
     
     session_start();
+    $idUser = 0;
 
     //verificar duplicidade
     $prepa = $conn->prepare("
@@ -47,6 +48,12 @@
                 
                 $_SESSION['idUserPersona'] = $linha1['id'];
                 $_SESSION['nome'] = $linha1['nome'];
+                $idUser = $linha1['id'];
+                if (isset($_POST['memorialCadProgressId'])) {
+                    include '../../memorial/criar/publicarMemorialProgress.php';
+                    exit();
+                }
+                
                 header('Location:../../../index.php');
             }    	
         }    

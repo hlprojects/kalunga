@@ -11,7 +11,7 @@
 	<title></title>
 	
 	<link rel="stylesheet" href="../../../build/css/materialize.min.css" />
-	<link rel="stylesheet" href="../../build/css/app.min.css" />
+	<link rel="stylesheet" href="../../../build/css/app.min.css" />
 	<link rel="prefetch" href="../../src/img/bg-flowers.jpg" />
 
 
@@ -30,7 +30,17 @@
 		<h1 style="color: white"><strong>Kalunga</strong></h1><br>
 	    <form action="../../../V1/conta/criar/index.php" method="post">
 	      <div class="card-content">
-	        <span class="card-title" style="color: white">Registo, introduza seus credencias:</span>
+
+	        <?php 
+
+	          	if (isset($_GET["p"])) {
+	          	 	echo '<span class="card-title" style="color: white">Crie uma conta para continuar sua publicação</span>';
+	          	}else{
+	          	 	echo '<span class="card-title" style="color: white">Registo, introduza seus credencias:</span>';
+	          	}
+
+	        ?>	      
+	        
 	        <div class="row">
 	          <div class=" col s12">
 	            <label for="nome">Nome</label>
@@ -53,16 +63,29 @@
 	          			}
 	          		}
 
-	          	 ?>
+	          	 	if (isset($_GET["p"])) {
+	          	 		echo '<a href="signIn.php?p='.$_GET["p"].'">Já tenho uma conta, efectuar login</a>';
+	          	 		echo '<input type="text" value="'.$_GET["p"].'" class="noDisplay" name="memorialCadProgressId" />';	          	 		
+	          	 	}else{
+	          	 		echo '<a href="signIn.php?">Já tenho uma conta, efectuar login</a>';
+	          	 	}
+
+	          	  ?>
+
 	          </div>
+	          <div class="col s12">
+	          </div>	      
+	          <div class="card-action right-align">
+
+		        <input style="color: white" type="reset" id="reset" class="btn-flat grey-text waves-effect">
+
+		        <input style="font-weight: bold!!important;"  type="submit" class="btn green waves-effect waves-light" value="Registar">
+
+	        
+	      </div>
 	        </div>
 	      </div>
-	      <div class="card-action right-align">
 
-	        <input style="color: white" type="reset" id="reset" class="btn-flat grey-text waves-effect">
-
-	        <input style="font-weight: bold!!important;"  type="submit" class="btn green waves-effect waves-light" value="Registar">
-	      </div>
 	    </form>
 	  </div>
 	</div>

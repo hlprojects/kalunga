@@ -15,7 +15,7 @@
           $bibliografia = ( $linha['bibliografia'] );
 
           echo "<figure>
-                    <a href='http://".$UrlSite."/src/views/memorial/?id=$id'>
+                    <a href='src/views/memorial/?id=$id'>
                       <div class='campa'>
                         <img src='media/photos/$foto' style='position: absolute; left: 90px; top: 52px; -webkit-filter: grayscale(100%); filter: grayscale(100%); border-radius: 100%;' width='120' height='120' alt='Some' />
                         <div class='name-container'>

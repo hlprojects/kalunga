@@ -24,8 +24,6 @@
 
 	<script type="text/javascript">
 
-
-
 		function UploadFoto() {
 
 			var fileInput = document.getElementById('fileFoto');
@@ -71,7 +69,7 @@
 			
 			</form>
 
-			<button type="button" style="border-radius: 20px!important;" class="btn-publish waves-effect"><a href="src/views/post.html" style="color:#424242!important"> <strong>Editar</strong></a></button>
+			<button type="button" style="border-radius: 20px!important;" class="btn-publish waves-effect"><a <?php echo 'href="./editar/?id='.$id.'"'; ?>> <strong>Editar</strong></a></button>
 
 		</nav>
 
@@ -257,6 +255,18 @@
 
 		</main>
 		<footer id="rodape" style="margin-top: 5rem;">
+
+			<?php 
+		$UID = 0;
+		if (isset($_COOKIE['UID'])) {
+			$UID = $_COOKIE['UID'];
+		}else{
+			$UID =  bin2hex(random_bytes(16));
+			setcookie('UID',$UID);
+		}
+
+		echo '<input type="text" value="'.$UID.'" class="noDisplay" name="UID" />';
+	 ?>
 			
 		</footer>
 

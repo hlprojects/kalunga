@@ -25,20 +25,12 @@
  
 	<header>
 
-	<br>
 		<nav class="navbar transparent z-depth-0">
 
-			<button href="#!" data-target="slide-out"  class="sidenav-trigger waves-effect btn-menu show-on-large"><i  class="material-icons black-text">menu</i></button>
+			
 
-			<form method="get" action="src/views/memoriais/pesquisar.php" class="form-search">
-				<i  class="material-icons">search</i>
-				<input   type="search"  list="datalist-name" id="search" class="kalunga input-search" name="query" placeholder="Pesquisar..." />
-				
-				<datalist onclick="" id="datalist-name">
-				</datalist>
-			</form>
 
-			<a href="src/views/memorial/publicar" style=""><button type="button"  class="btn-publish waves-effect"> <strong>Publicar</strong></button></a>
+
 		</nav>
 
 		<ul id="slide-out" class="sidenav">
@@ -81,6 +73,9 @@
 
 			<div class="quote-author white-text">Steve Jobs</div>
 			<div class="death-date white-text">1955 - 2011</div>
+			<br>
+			
+			<a href="src/views/memorial/publicar" style=""><button style="border-radius: 20px!important;" type="button"  class="btn-publish waves-effect"> <strong>Publicar</strong></button></a>
 
 		</div>
 	</header>

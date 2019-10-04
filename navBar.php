@@ -8,7 +8,20 @@
 
 	<nav class="z-depth-3 " style="">
 		<div class="nav-wrapper">
-			<a href=<?php echo $initPath.'index.php';  ?> class="brand-logo"><img style="" height="40" src=<?php echo $initPath.'src/img/logo.png';  ?>  > </a>
+			<a href=<?php echo $initPath.'index.php';  ?> class="brand-logo"> 
+				<button style="height: 56px!important;" href="#!" data-target="slide-out"  class="sidenav-trigger waves-effect btn-menu show-on-large"><i  class="material-icons black-text">menu</i>
+				</button>
+
+				 <img style="" height="40" src=<?php echo $initPath.'src/img/logo.png';  ?>  > 
+			</a>
+
+			<form method="get" action="src/views/memoriais/pesquisar.php" class="form-search center">
+				
+				<input style="border-radius: 20px!important;"  type="search"  list="datalist-name" id="search" class="kalunga input-search" name="query" placeholder="Pesquisar..." />
+				
+				<datalist onclick="" id="datalist-name">
+				</datalist>
+			</form>
 
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<?php 

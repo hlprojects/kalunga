@@ -20,8 +20,8 @@ button {
   border: 1px solid #cacaca !important;
 }
 .brand-logo img {
-  margin-top: 10px;
-  margin-left: 20px;
+  margin-top: 15px;
+  margin-left: -10px;
 }
 header {
   background-color: #999;
@@ -90,7 +90,6 @@ nav a {
   margin-left: 0.8rem;
 }
 .form-search i {
-  position: absolute;
   color: #777;
   height: 40px !important;
   top: 20px;
@@ -236,6 +235,9 @@ html {
 }
 .textWhite {
   color: #fff !important;
+}
+.noDisplay {
+  display: none;
 }
 .box,
 .funeral-content .bio,

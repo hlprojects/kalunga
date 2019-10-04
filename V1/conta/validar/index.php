@@ -3,8 +3,10 @@
 	include "../../connect.php";
 
     session_start();
+
+    $idUser = 0;
     
-    $prepa = $conn->prepare("
+    $prepa1 = $conn->prepare("
         SELECT * 
         FROM persona
         WHERE 
@@ -12,17 +14,24 @@
             `senha` = '".$_POST['password']."'
          ORDER BY id DESC LIMIT 1");
 
-    if ($prepa->execute()) {  
+    if ($prepa1->execute()) {  
            
-        while($linha= $prepa->fetch(PDO::FETCH_ASSOC)){
+        while($linha1= $prepa1->fetch(PDO::FETCH_ASSOC)){
             
-            $_SESSION['idUserPersona'] = $linha['id'];
+            $_SESSION['idUserPersona'] = $linha1['id'];
 
-            $_SESSION['nome'] = $linha['nome'];
+            $_SESSION['nome'] = $linha1['nome'];
 
             $expire = 6*30*24*3600;
 
-            setcookie('UID',$linha['id'],$expire);
+            setcookie('UID',$linha1['id'],$expire);
+
+            $idUser = $linha1['id'];
+            if (isset($_POST['memorialCadProgressId'])) {
+                include '../../memorial/criar/publicarMemorialProgress.php';
+                exit();
+              
+            }            
     
             header('Location:../../../index.php');
 

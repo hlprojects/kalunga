@@ -11,7 +11,7 @@
 	<title></title>
 
 	<link rel="stylesheet" href="../../../build/css/materialize.min.css" />
-	<link rel="stylesheet" href="../../build/css/app.min.css" />
+	<link rel="stylesheet" href="../../../build/css/app.min.css" />
 	<link rel="prefetch" href="../../src/img/bg-flowers.jpg" />
 
 
@@ -29,7 +29,17 @@
 		<h1 style="color: white"><strong>Kalunga</strong></h1><br>
 	    <form action="../../../V1/conta/validar/index.php" method="post">
 	      <div class="card-content">
-	        <span class="card-title" style="color: white">Login, introduza seus credencias:</span>
+
+	        <?php 
+
+	          	if (isset($_GET["p"])) {
+	          	 	echo '<span class="card-title" style="color: white">Efectuar Login para continuar publicação</span>';
+	          	}else{
+	          	 	echo '<span class="card-title" style="color: white">Login, introduza seus credencias:</span>';
+	          	}
+
+	        ?>	
+ 
 	        <div class="row">
 	          <div class="col s12">
 	            <label for="email">Email ou telefone</label>
@@ -40,6 +50,7 @@
 	            <input placeholder="Sua senha" type="password" class="validate textWhite" name="password" id="password" required />
 	          </div>
 	          <div class="col s12">
+
 	          	<?php 
 
 	          		if (isset($_GET["error"])) {
@@ -48,7 +59,17 @@
 	          			}
 	          		}
 
-	          	 ?>
+	          		
+
+	          	 	if (isset($_GET["p"])) {
+	          	 		echo '<a href="signUp.php?p='.$_GET["p"].'">Não tenho conta,criar agora</a>';
+	          	 		echo '<input type="text" value="'.$_GET["p"].'" class="noDisplay" name="memorialCadProgressId" />';
+	          	 	}else{
+	          	 		echo '<a href="signUp.php?">Não tenho conta,criar agora</a>';
+	          	 	}
+
+	          	  ?>
+
 	          </div>
 	        </div>
 	      </div>
