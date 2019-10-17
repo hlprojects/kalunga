@@ -38,7 +38,12 @@
             exit();
         }
 
-        header('Location:../../../src/views/conta/signIn.php?error=1');
+        if (isset($_POST['memorialCadProgressId'])) {
+                header('Location:../../../src/views/conta/signIn.php?error=1&p='.$_POST['memorialCadProgressId']);      
+        }else{
+            header('Location:../../../src/views/conta/signIn.php?error=1');            
+        }
+
       	
     }else{
     	echo "404";

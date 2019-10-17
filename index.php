@@ -23,64 +23,39 @@
 
 	<?php $initPath = './'; include 'navBar.php'; ?>
  
-	<header>
+	<header class="valign-wrapper">
 
-		<nav class="navbar transparent z-depth-0">
-
-			
-
-
-
-		</nav>
-
-		<ul id="slide-out" class="sidenav">
+		<div class=" center-align  swiper-container swiperInit">
 	
-			<li>
-				<div class="user-view">
-					<div class="background">
-						<img src="src/img/plan-a-funeral-800x533.jpeg">
-					</div>
-					
-					<a href="#user"><img class="circle" src="src/img/tod-freizeitpark.jpg"></a>
-					  <a href="#name"><span class="white-text name">HL inc</span></a>
-					  <a href="#email"><span class="white-text email">Kalunga</span></a>
-				</div>
-			</li>
-
-			<li><a href="#!" class="waves-effect"><i class="material-icons">folder_open</i>Memoriais</a></li>
-
-			<li><a href="#!" class="waves-effect"><i class="material-icons">public</i>Serviços funerários</a></li>
-
-			<li><a href="#!" class="waves-effect"><i class="material-icons">card_giftcard</i>Ofertas e doações</a></li>
-
-			<li><a href="#!" class="waves-effect"><i class="material-icons">book</i>Livro de condolências</a></li>
-
-			<li><div class="divider"></div></li>
-
-			<li><a href="#!"><i class="material-icons">info</i>Informações funebres</a></li>
-				  
-			<li><a href="#!"><i class="material-icons">settings</i>Definições</a></li>
-				  
-			<li><a href="#!" class="sidenav-close">Fechar o menu</a></li>
+			<div class="covers swiper-wrapper valign-wrapper" style="margin: 0px!important">
 				
-		</ul>
 
-		<div class="quotes center-align">
-						
-			<blockquote class="white-text">
-				"A morte é o destino que todos nós compartilhamos"
-			</blockquote>
+				<div class=" swiper-slide ">
 
-			<div class="quote-author white-text">Steve Jobs</div>
-			<div class="death-date white-text">1955 - 2011</div>
-			<br>
-			
-			<a href="src/views/memorial/publicar" style=""><button style="border-radius: 20px!important;" type="button"  class="btn-publish waves-effect"> <strong>Publicar</strong></button></a>
+					<img width="200" src="src/img/logo.png">
+					<br>
+					<h5 class="white-text" style="padding-left: 20px;padding-right: 20px">
+						"A morte é o destino que todos nós compartilhamos"
+					</h5>
 
+					<div class="quote-author white-text">Steve Jobs</div>
+					
+					<br>
+					<a href="src/views/memorial/publicar" style=""><button style="border-radius: 50px!important;font-weight: bold;color: #808080;border: none!important;" type="button"  class="btn-publish waves-effect"> <strong>Publicar</strong></button></a>				
+				</div>
+
+				<div class=" swiper-slide">
+					
+				</div>
+			</div>
+			<br><br>
+			<div class="swiper-pagination"></div>
 		</div>
+
 	</header>
 
 	<main>
+		
 
 		<br>
 		<div  class="swiper-container slide swiper1">
@@ -88,14 +63,16 @@
 				<?php include 'V1/home/store.php';?>
 			</div>
 		</div>
-
+		<br><br> 
+		<div style="margin-left: 15%;margin-right: 15%;" class="divider"></div>
+		<br><br>
 
 		<?php 		
 			if (isset($_SESSION['idUserPersona'])) {
 				echo '<h1 class="center-align nota-falecimento-titulo">Condolências</h1>';
 
 				echo '<div  class="swiper-container slide swiper3">
-						<div class="covers swiper-wrapper ">';
+						<div class="swiper-wrapper ">';
 
 					include 'V1/home/condolencias.php';
 
@@ -110,9 +87,21 @@
 
 			<div class="campas">
 				<?php include 'V1/home/notas.php';?>
+
+
+				<div class="center-align">
+					<button style="height: 50px;width: 120px;border-radius: 50px!important;color: grey;font-weight: bold;background-color: #ffffff47 !important;">Mais notas</button>
+				</div>
+
+				
 			</div>
 
+
+			<br><br>
+
 		</section>
+
+
 
 	</main>  
 
@@ -131,6 +120,13 @@
 
 			M.AutoInit();
 
+			var swiper = new Swiper('.swiperInit', {
+				slidesPerView: 'auto',
+				paginationClickable: true,
+				spaceBetween: 0,
+				pagination: '.swiper-pagination'
+				
+			});
 			var swiper = new Swiper('.swiper1', {
 				slidesPerView: 'auto',
 				paginationClickable: true,
@@ -138,13 +134,17 @@
 				loop: true,
 				autoplay: 2000,
 				//autoplayDisableOnInteraction: false 
-				freeMode: true       
+				//freeMode: true,
+				center:true       
 			});
 
 			var swiper = new Swiper('.swiper3', {
 				slidesPerView: 'auto',
 				paginationClickable: true,
-				spaceBetween: 10,
+				spaceBetween: 10,      
+        		
+        		loop: true,
+        
 				
 			});
 		});

@@ -42,7 +42,7 @@
 
             echo '<div class="cover swiper-slide">
                     <a href="src/views/memorial/?id='.$linha['id'].'">
-                      <p class="center-align"><img style="-webkit-filter: grayscale(100%); filter: grayscale(50%);" src="media/photos/'.$linha['foto'].'"></p>
+                      <p class="center-align"><img style="-webkit-filter: grayscale(100%); filter: grayscale(100%);" src="media/photos/'.$linha['foto'].'"></p>
                       <p class="topN center-align"><strong>'.$linha['nome'].'</strong></p>
                     </a>
                   </div>';                        

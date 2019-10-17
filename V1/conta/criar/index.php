@@ -19,8 +19,14 @@
 
 
         while($linha1 = $prepa->fetch(PDO::FETCH_ASSOC)){
-                
-            header('Location:../../../src/views/conta/signUp.php?error=1');
+
+        if (isset($_POST['memorialCadProgressId'])) {
+                header('Location:../../../src/views/conta/signUp.php?error=1'.$_POST['memorialCadProgressId']);      
+        }else{
+            header('Location:../../../src/views/conta/signUp.php?error=1');            
+        }
+
+            
             exit();
         } 
 

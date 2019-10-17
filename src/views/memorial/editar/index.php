@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-  	<meta name="theme-color" content="#999" />
+  	<meta name="theme-color" content="black" />
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   	<link rel="manifest" href="../../../../manifest.json">
@@ -15,93 +15,153 @@
 	<link rel="stylesheet" href="../../../../build/css/app.min.css" />
 	<link rel="prefetch" href="../../../../src/img/bg-flowers.jpg" />
 
+	<script type="text/javascript">
+		function mudarCapa(){
+			var input = document.getElementById('capafoto');
+		    var reader = new FileReader();
+
+		    reader.onload = function (e) {
+		      var tagImage = document.getElementById('fotoCapa');
+		      
+		      tagImage.style.background = 'url(' + e.target.result + ')';
+		    };
+
+		    reader.readAsDataURL(input.files[0]);
+		  
+		}	
+
+		function mudarFoto(){
+			var input = document.getElementById('filefoto');
+		    var reader = new FileReader();
+
+		    reader.onload = function (e) {
+		      var tagImage = document.getElementById('fotoProfile');
+		      tagImage.src = e.target.result;
+		    };
+
+		    reader.readAsDataURL(input.files[0]);
+		  
+		}
+		  
+	</script>
+	
 </head>
 <body>
 
+
+
 	<?php 
 		include(dirname(__FILE__) . '/../../../../V1/memorial/index.php');
+
  	?>
+		<?php $initPath = '../../../../'; include '../../../../navbar.php'; 
 
-	<header>
+			if (isset($_SESSION['idUserPersona'])) {
+				if ($_SESSION['idUserPersona']!=$idPersonaCad) {
+					header('Location:../../../../');
+				}
+			}else{
+				header('Location:../../../../'); 
+			}
 
-		<?php $initPath = '../../../../'; include '../../../../navbar.php'; ?>
+		?>
 
-		<div class="quotes center-align">
-			<br><br><br>
-			<h1 class="white-text"><strong>Editar</strong></h1>
-		</div>
 
-	</header>
+
 
 	<main>
 
-		<br>
-
 	    <div>
+	
+					<form action="../../../../V1/memorial/editar/index.php" method="post" class="form-message" enctype="multipart/form-data">
 
-			<form action="../../../../V1/memorial/editar/index.php" method="post" class="form-message" enctype="multipart/form-data">
+						<header id="fotoCapa" class='memorial'   <?php echo "style='filter: grayscale(100%);height: 60vh; background: url(../../../../media/photos/".$capa.");background-repeat: no-repeat;background-size: cover'"; ?>>
 
-				<div class="row">
+							    <label for="capafoto"> 
+									<div class="center-align valign-wrapper" style="height: 60vh;width: 100%;background: #000000c7;top: 0px">
+									
+										<p style="font-size: 20px;color: white;padding: 20px;width: 100%">Alterar capa</span></p>
 
-					<div class="col s12">
-					    <label for="capafoto"> 
-					        <div style="overflow: hidden;border:none!important; height: 400px;width: 100%;border-style: ridge; background:grey;  " id="fotoCapa">
+										
+									</div>	
+							        <input  style="display:none" type="file"  onchange="mudarCapa()" accept="image/*" name="capa" id="capafoto" >
+							    </label>
 
-			
-					        	<p style="text-align: center; position: absolute;width: 100%;font-size: 20px;margin-top: 15%"><span style="background: black;color: white;padding: 20px;font-weight: bold;">Clique para alterar</span></p>
+						
 
-					        	<img style="width: 100%" <?php echo "src='../../../../media/photos/".$capa."'"; ?>>
 
-					        </div>
-					        <input  style="display:none" type="file"  onchange="mudarCapa()" accept="image/*" name="capa" id="capafoto" >
-					    </label>
-					</div>
 
-					<br><br><br>
+						</header>
 
-				    <div class="col s4">
-						<p class="center-align">
-				            <label for="filefoto"> 
-				                <img <?php echo "src='../../../../media/photos/".$foto."'"; ?> style="border-radius:100px;height: 200px;width: 200px;border-style: none; background:grey;  " id="foto">
-				                <div style=""></div>
-				                <input  style="display:none" type="file"  onchange="mudar()" accept="image/*" name="foto" id="filefoto">
-				            </label>			
-						</p>       
-				    </div>
+						<p class="center-align" style="width: 100%;margin-top: -100px">
+							<label for="filefoto"> 
+						        <img id="fotoProfile" src=<?php  echo "../../../../media/photos/".$foto; ?>>
 
-				    <div class="col s6">
+						        <br>
+						        	
+						       <strong style="font-size: 20px">Alterar</strong>
 
-				    	<input  type="text" style="display: none;" name="capa_antiga" value = <?php echo $capa ?> >
-				    	<input  type="text" style="display: none;" name="foto_antiga" value = <?php echo $foto ?> >
-				    	<input  type="text" style="display: none;" name="id" value = <?php echo $id ?> >
+						        <input  style="display:none" type="file"  onchange="mudarFoto()" accept="image/*" name="foto" id="filefoto">
+						     </label>
+									
+						</p>	
 
-						<label for="nome_k">Nome</label>
-						<input required type="text" name="nome_k" id="nome_k" placeholder="Nome do malogrado" value = <?php echo $nome ?> />
 
-			            <label for="descricao_k">Descrição</label>
-						<textarea name="descricao_k" id="descricao_k" class="materialize-textarea" placeholder="Descrição" cols="30" rows="10" maxlength="266" ><?php echo $descricao ?></textarea>
+								<div class="valign-wrapper row login-box">
+	    						
+								    <div class="col  s10 pull-s1   card bioBlack row">
+								    <br>
+								    	<input  type="text" style="display: none;" name="capa_antiga" value = <?php echo $capa ?> >
+								    	<input  type="text" style="display: none;" name="foto_antiga" value = <?php echo $foto ?> >
+								    	<input  type="text" style="display: none;" name="id" value = <?php echo $id ?> >
 
-						<label for="data_nascimento_k">Data de nascimento</label>
-						<input required type="date" class="" id="data_nascimento_k" name="data_nascimento_k" value = <?php echo $data_nascimento ?> />
+								    	<div style="padding-right: 40px">
 
-						<label for="data_morte_k">Data da morte</label>
-						<input required type="date" class="" id="data_morte_k" name="data_morte_k"  value = <?php echo $data_die ?>/>
+									    	<div class="col  s12">
+												<label for="nome_k">Nome</label>
+												<input required type="text" name="nome_k" id="nome_k" placeholder="Nome do malogrado" value = <?php echo $nome ?> />
+											</div>
 
-						<label for="data_funeral_k">Data do funeral(Opcional)</label>
-						<input required type="date" class="" id="data_funeral_k" name="data_funeral_k"  value = <?php echo $data_funeral ?>/>
+									    	<div class="col  s12">
+												<label for="data_nascimento_k">Data de nascimento</label>
+												<input required type="date" class="" id="data_nascimento_k" name="data_nascimento_k" value = <?php echo $data_nascimento ?> />
+											</div>
 
-						<label for="local_funeral_k">Local do funeral</label>
-						<input required type="text"  id="local_funeral_k" name="local_funeral_k" value = <?php echo $local_funebre ?> />
+									    	<div class="col  s12">
+												<label for="data_morte_k">Data da morte</label>
+												<input required type="date" class="" id="data_morte_k" name="data_morte_k"  value = <?php echo $data_die ?>/>
+											</div>
 
-			            <label for="bibliografia_k">Bibliografia</label>
-						<textarea required name="bibliografia_k" id="bibliografia_k" class="materialize-textarea" placeholder="bibliografia" cols="30" rows="10" maxlength="266"><?php echo $bibliografia ?></textarea>
+									    	<div class="col  s12">
+												<label for="data_funeral_k">Data do funeral(Opcional)</label>
+												<input required type="date" class="" id="data_funeral_k" name="data_funeral_k"  value = <?php echo $data_funeral ?>/>
+											</div>
 
-						<div class="call-to-action" style="display: flex; justify-content: space-between; align-items: center;">
-							<input required type="submit" value="Salvar" class="waves-effect waves-light btn-large"> 
-						</div>
-					</div>
-				</div>
-			</form>        
+									    	<div class="col  s12">
+												<label for="local_funeral_k">Local do funeral</label>
+												<input required type="text"  id="local_funeral_k" name="local_funeral_k" value = <?php echo $local_funebre ?> />
+
+									    	</div>
+									    </div>
+
+								    	<div class="col  s12">
+								            <label for="descricao_k">Descrição</label>
+											<textarea name="descricao_k" id="descricao_k" class="materialize-textarea" placeholder="Descrição" cols="30" rows="10" maxlength="266" ><?php echo $descricao ?></textarea>				
+										</div>
+
+								    	<div class="col  s12">
+											<label for="bibliografia_k">Bibliografia</label>
+											<textarea required name="bibliografia_k" id="bibliografia_k" class="materialize-textarea" placeholder="bibliografia" cols="30" rows="10" maxlength="266"><?php echo $bibliografia ?></textarea>
+										</div>
+
+										<button type="submit"  style="border: none!important; margin-left: 10px" class="btn-publish kalunga waves-effect">Salvar</button>
+										<br>
+										<br>
+									</div>
+								</div>
+
+					</form>
+      
 	    </div>
 
      </div>

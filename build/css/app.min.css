@@ -27,7 +27,7 @@ header {
   background-color: #999;
   background: url("../../src/img/bg-flowers.png") no-repeat;
   background-size: cover;
-  height: 60vh;
+  height: 45vh;
 }
 @media (max-width: 568px) {
   header {
@@ -69,49 +69,45 @@ nav a {
   color: #999;
 }
 .btn-menu {
-  height: 36px !important;
-  width: 44px !important;
   cursor: pointer;
   background-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
 }
-@media (max-width: 320px) {
-  .btn-menu {
-    padding-right: 1.4rem;
-  }
-}
 .btn-menu i {
   color: #e2e2e2 !important;
 }
+@media only screen and (max-width: 600px) {
+  .nav-wrapper .show-on-small {
+    display: flow-root !important;
+  }
+}
 .form-search {
   position: relative;
-  margin-right: 2rem;
-  margin-left: 0.8rem;
 }
 .form-search i {
+  float: left;
   color: #777;
   height: 40px !important;
-  top: 20px;
-  left: 10px;
+}
+.form-search input {
+  background-color: #333 !important;
+  border: none !important;
+  color: #777 !important;
+  border-radius: 6px !important;
+  -webkit-border-radius: 50px !important;
+}
+.form-search input:focus {
+  border-bottom: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 .input-search {
   font-weight: bold;
   width: 466px !important;
   margin: 0 !important;
   height: 39px !important;
-  padding-left: 2.5rem !important;
-  padding-right: 0.5rem !important;
-}
-@media (max-width: 568px) {
-  .input-search {
-    width: 50% !important;
-  }
-}
-@media (max-width: 768px) {
-  .input-search {
-    width: 80% !important;
-  }
+  text-align: center;
 }
 .input-search::-webkit-input-placeholder {
   color: #777;
@@ -124,6 +120,17 @@ nav a {
   height: 42px;
   font-weight: bold;
   color: #424242;
+}
+#nav-mobile {
+  position: absolute;
+  right: 30px;
+  top: 0px;
+}
+body {
+  background-color: #f1f1f1;
+}
+a {
+  color: #000;
 }
 .covers {
   margin-right: 20px;
@@ -156,18 +163,6 @@ nav a {
   width: 300px !important;
   height: 200px;
 }
-#fotoProfile {
-  border-radius: 100%;
-  height: 250px;
-  width: 250px;
-  position: absolute;
-  filter: grayscale(100%);
-  margin-left: 50px;
-  margin-top: -130px;
-  border-style: solid;
-  border-color: #808080;
-  padding: 5px;
-}
 html {
   overflow-x: hidden;
 }
@@ -186,6 +181,8 @@ html {
 .campas .nota-falecimento {
   width: 300px;
   text-align: justify;
+  padding-left: 40px !important;
+  padding-right: 40px;
 }
 .campas figure {
   display: inline-table;
@@ -206,6 +203,9 @@ html {
   filter: grayscale(100%);
   border-radius: 100%;
   width: 120px;
+  border-style: solid;
+  border-color: #808080;
+  padding: 5px;
 }
 .campas .campa .name-container {
   position: absolute;
@@ -239,41 +239,34 @@ html {
 .noDisplay {
   display: none;
 }
-.box,
-.funeral-content .bio,
-.memorial-content .multimedia .video,
-.memorial-content .condolences .suporte,
-.memorial-content .condolences .message-container {
-  border-radius: 10px;
+label {
+  font-weight: bold;
+}
+input[type="text"],
+input[type="date"],
+input[type="password"],
+textarea {
+  border-bottom-width: 2px !important;
+}
+.box {
+  border-radius: 8px;
   background-color: #fff;
   padding: 1rem;
   -moz-box-shadow: 0px 2px 13px rgba(0,0,0,0.5);
   -webkit-box-shadow: 0px 2px 13px rgba(0,0,0,0.5);
-  box-shadow: 0px 2px 13px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 13px rgba(0,0,0,0.11);
   font-size: 14px;
   font-family: arial;
+  border-style: solid;
+  border-color: #9e9e9e;
+  border-width: 1px;
+  background-color: #fff;
 }
 .kalunga,
 button {
   border-radius: 2px !important;
   background-color: #fff !important;
   border: 1px solid #cacaca !important;
-}
-.memorial {
-  background: url("../../src/img/memorial/paul allen resized.png") no-repeat;
-  background-size: 100%;
-  height: 90vh;
-}
-@media (max-width: 992px) {
-  .memorial {
-    background-size: 100% 70vh;
-  }
-}
-@media (max-width: 568px) {
-  .memorial {
-    background-size: 100% 50vh;
-    height: 50vh;
-  }
 }
 h3.title {
   margin: 0 0 1rem 0;
@@ -290,151 +283,78 @@ h2.title {
   font-family: 'lucida grande';
   font-weight: bolder;
 }
-.funeral-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 3rem 0 3rem;
+#fotoProfile {
+  border-radius: 100%;
+  height: 200px;
+  width: 200px;
+  filter: grayscale(100%);
+  border-style: solid;
+  border-color: #636262;
+  padding: 5px;
 }
-@media (max-width: 568px) {
-  .funeral-content {
-    padding: 1rem;
-  }
+.bio {
+  padding: 20px;
+  border-radius: 20px;
+  height: 230px;
+  border: 1px solid #e8e8e8 !important;
+  box-shadow: none !important;
 }
-.funeral-content .bio {
-  width: 467px;
-  height: 293px;
-  display: flex;
-  flex-direction: column;
-}
-@media (max-width: 768px) {
-  .funeral-content .bio {
-    margin-top: 2rem;
-    width: 100%;
-  }
-}
-.funeral-content .bio p {
-  height: 293px;
+.bio p {
   text-align: justify;
-  overflow-y: hidden;
-  text-overflow: ellipsis;
 }
-.funeral-content .bio .expand-bio {
-  align-self: flex-end;
+.bioBlack {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: none !important;
+  background: #191919 !important;
 }
-.funeral-content .events {
-  display: flex;
-  flex-direction: column;
-  font-family: arial;
-  font-size: 14px;
-  margin-right: 15.5rem;
+.bioBlack label {
+  padding-left: 20px;
 }
-@media (max-width: 1050px) {
-  .funeral-content .events {
-    margin-right: 0;
-  }
+.bioBlack input[type="text"],
+.bioBlack textarea,
+.bioBlack input[type="date"] {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  background-color: #333 !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  -webkit-border-radius: 50px !important;
 }
-@media (max-width: 768px) {
-  .funeral-content .events {
-    margin-top: 2rem;
-    width: 100%;
-  }
+.bioBlack input[type="text"]:focus,
+.bioBlack textarea:focus,
+.bioBlack input[type="date"]:focus {
+  border-bottom: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
-.funeral-content .events .funeral-date li {
-  display: flex;
-  flex-direction: column;
+.bioBlack textarea {
+  height: 200px;
+  padding-top: 20px;
+  border-radius: 30px !important;
 }
-.funeral-content .events .funeral-date li:not(:last-child) {
-  margin-bottom: 1.5rem;
+.bioBlack button {
+  border-radius: 30px !important;
+  color: #808080;
+  font-weight: bold;
 }
-.funeral-content .events .btn-funeral-action {
-  width: 118px;
-  height: 39px;
-  color: #444;
-  font-size: inherit;
-  margin-top: 1rem;
-  cursor: pointer;
+.dropdown-content {
+  border-radius: 25px;
 }
-.memorial-content {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3rem;
-  padding: 0 3rem 0 3rem;
-}
-@media (max-width: 568px) {
-  .memorial-content {
-    padding: 1rem;
-  }
-}
-@media (max-width: 768px) {
-  .memorial-content {
-    flex-wrap: wrap;
-    width: 100%;
-  }
-}
-.memorial-content .multimedia {
-  width: 467px !important;
-  margin-right: 1rem;
-}
-.memorial-content .multimedia .fotos {
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.memorial-content .multimedia .fotos img {
-  margin-bottom: 1rem;
-  border: 5px solid #fff;
-  box-shadow: 2px 2px 13px #aaa;
-}
-@media (max-width: 480px) {
-  .memorial-content .multimedia .fotos img {
-    width: 100%;
-    height: 200px;
-  }
-}
-.memorial-content .multimedia .video {
-  margin-top: 3rem;
-  height: 285px;
-}
-.memorial-content .multimedia .video video {
-  max-width: 100%;
-  height: 100%;
-  position: relative;
-  bottom: 10px;
-}
-.memorial-content .condolences {
-  font-family: arial;
-  font-size: 14px;
-}
-.memorial-content .condolences input[type=text]:focus,
-.memorial-content .condolences textarea:focus {
-  border-bottom: 1px solid #888 !important;
-  box-shadow: 0 1px 0 0 #888 !important;
-}
-@media (max-width: 568px) {
-  .memorial-content .condolences {
-    margin-top: 5rem;
-    width: 100%;
-  }
-}
-.memorial-content .condolences .suporte {
-  max-width: 467px;
-}
-@media (max-width: 768px) {
-  .memorial-content .condolences .suporte {
-    width: 100%;
-  }
-}
-.memorial-content .condolences .message-container {
-  margin-top: 4rem;
+.dropdown-content li span {
+  color: #000 !important;
 }
 @media (min-width: 568px) {
-  .memorial-content .condolences .message-container {
-    width: 467px;
+  #memorial-content {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
-.memorial-content .condolences .view-more-messages {
-  float: right;
-  margin-top: 3rem;
+.fotos img {
+  border: 1px solid #e8e8e8 !important;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 100%;
 }

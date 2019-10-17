@@ -4,43 +4,13 @@
 
 	include "../../connect.php";
 
-    $randomName = '';
-    $randomName1 = '';
     $randomName2 = '';
-    $type = '';
-    $type1 = '';
     $type2 = '';
 
     $UserCad = 0;
 
     if (isset($_SESSION['idUserPersona'])) {
         $UserCad = $_SESSION['idUserPersona'];
-    }
-
-    if (isset($_FILES["file"])) {
-        $randomFullName = '';
-        $exploder = explode('.', $_FILES["file"]["name"]);
-        $type =  strtolower(end($exploder));
-        $pathFile = '../../../media/photos/'; 
-
-        do{
-            $randomName = (rand() + time());
-            $randomFullName =$pathFile . $randomName.'.'.$type;
-        }while (file_exists($randomFullName));
-        move_uploaded_file($_FILES["file"]["tmp_name"],$randomFullName); 
-    }
-        
-    if (isset($_FILES["capa"])) {
-        $randomFullName1 = '';
-        $exploder1 = explode('.', $_FILES["capa"]["name"]);
-        $type1 =  strtolower(end($exploder1));
-        $pathFile1 = '../../../media/photos/'; 
-
-        do{
-            $randomName1 = (rand() + time());
-            $randomFullName1 =$pathFile1 . $randomName1.'.'.$type1;
-        }while (file_exists($randomFullName1));
-        move_uploaded_file($_FILES["capa"]["tmp_name"],$randomFullName1);
     }
 
     if (isset($_FILES["boletim_k"])) {
@@ -63,12 +33,9 @@
             `nome`,
             `data_die`,
             `data_nascimento`,
-            `bibliografia`,
             `foto`,
             `tag`,
             `capa`,
-            `data_funeral`,
-            `local_funebre`,
             `boletim`,
             `descricao`,
             `idPersonaCad`
@@ -76,13 +43,9 @@
             '".$_POST['nome_k']."',
             '".$_POST['data_morte_k']."',
             '".$_POST['data_nascimento_k']."',
-            '".$_POST['bibliografia_k']."',
-            '".$randomName.".".$type."',
-            '".$tag.date('Y')."',
-            '".$randomName1.".".$type1."',
-            '".$_POST['data_funeral_k']."',
-            '".$_POST['local_funeral_k']."',
-            '".$randomName2.".".$type2."',
+            'blank.png',
+            '@".$tag.date('Y')."',
+            'blank.png',
             '".$_POST['descricao_k']."',
             '".$UserCad."'
         )");

@@ -4,7 +4,7 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-  	<meta name="theme-color" content="#999" />
+  	<meta name="theme-color" content="black" />
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link rel="manifest" href="../../manifest.json">
@@ -58,217 +58,274 @@
 
 	<?php $initPath = '../../../'; include '../../../navBar.php'; ?>
 
-	<header class='memorial'   <?php echo "style='height: 60vh; background: url(../../../media/photos/".$capa.");background-repeat: no-repeat;background-size: cover'"; ?>>
+	<header class='memorial'   <?php echo "style='filter: grayscale(100%);height: 60vh; background: url(../../../media/photos/".$capa.");background-repeat: no-repeat;background-size: cover'"; ?>>
 
-		<nav class="navbar transparent z-depth-0">
-			<button href="#!" data-target="slide-out" style="background-color: transparent !important; box-shadow: none!important;border:none !important" class="sidenav-trigger waves-effect btn-menu show-on-large"><i style="color: #e2e2e2!important" class="material-icons black-text">menu</i></button>
+	
+		<div class="center-align valign-wrapper" style="height: 60vh;width: 100%;background: #000000c7;top: 0px">
+		
+				<div style="width: 100%">
+					<h3 class="white-text" style=""><?php echo $nome; ?></h3>
+					<div class="death-date white-text"><?php echo $ano_nasce.' - '.$ano_morte ; ?></div>
+					<br>
+					
 
-			<form method="get" class="form-search">
-							
-				<input disabled="disabled" style="color: grey; border-radius: 20px!important;box-shadow: none!important;font-weight: bold; padding-left: 20px!important" value=<?php echo '@'.$tag; ?>  type="search"  id="search" class="kalunga input-search"  />
-			
-			</form>
+					<?php 
+						if (isset($_SESSION['idUserPersona']) && $_SESSION['idUserPersona']==$idPersonaCad ) {
+							echo '<a style="font-weight: bold;color: white;text-decoration: underline;" href="./editar/?id='.$id.'"">Editar perfíl</a>';
+						}
+					 ?>
 
-			<button type="button" style="border-radius: 20px!important;" class="btn-publish waves-effect"><a <?php echo 'href="./editar/?id='.$id.'"'; ?>> <strong>Editar</strong></a></button>
 
-		</nav>
+				</div>
 
-		<ul id="slide-out" class="sidenav">
-			<li>
-				<div class="user-view" style="background-color: #333; height: 200px;">
-			   		<div style="position: absolute; top: 10px; margin: auto; margin-left: 10px;">
-		   				<a href="index.html" style="position: relative;">
-					   		<img src="./src/img/campa 220x165.png" />
-					   		<img style="position: absolute; top: -50px; left: 4.7rem;" src="./src/img/pale-rose 50x20.png" alt="A single pale rose" />
-					   		<span style="position: absolute; top: -90px; font-size: 2.5em; left: 6.1rem; color: #eee;" class="material-icons">home</span>
-				   		</a>
-			   		</div>
-			  	</div>
-			</li>
-
-			<li><a href="#!" class="waves-effect"><i class="material-icons">folder_open</i>Memoriais</a></li>
-			<li><a href="#!" class="waves-effect"><i class="material-icons">public</i>Serviços funerários</a></li>
-			<li><a href="#!" class="waves-effect"><i class="material-icons">card_giftcard</i>Ofertas e doações</a></li>
-			<li><a href="#!" class="waves-effect"><i class="material-icons">book</i>Livro de condolências</a></li>
-			<li><div class="divider"></div></li>
-			<li><a href="#!"><i class="material-icons">info</i>Informações funebres</a></li>
-			<li><a href="#!"><i class="material-icons">settings</i>Definições</a></li>
-			<li><a href="#!" class="sidenav-close">Fechar o menu</a></li>
-
-		</ul>
-
-		<div class="quotes center-align">
-			<br><br><br>
-
-			<h3 class="white-text"><strong><?php echo $nome; ?></strong></h3>
-			<div class="death-date white-text">1955 - 2011</div>
+	
 		</div>
+
 
 	</header>
 
-	<img id="fotoProfile" src=<?php  echo "../../../media/photos/".$foto; ?>>
+	<p style="text-align: center; width: 100%;margin-top: -100px">
+		<img id="fotoProfile" src=<?php  echo "../../../media/photos/".$foto; ?>>		
+	</p>	
 
-	<br><br><br><br><br><br><br>
 
 
-		<main>
+		<main id="memorial-content">
 			<section class="funeral-content">
 
 
+			<div class="row">
+				<div class="col s12 m12 l6">
+					<div class="bio card">
+						<h2 style="margin: 0px!important" class="title">Biografia
+						</h2>
+						<p data-text= <?php echo $bibliografia ?> id="uni">
+						<?php 
+							if (empty($bibliografia) && $_SESSION['idUserPersona']==$idPersonaCad ) {
+								echo '<a style="font-weight: bold;" href="./editar/?id='.$id.'"">Actualizar biografia</a>';
+							}else{
 
-				<div class="bio">
-					<h3 class="title">Biografia</h3>
-					<p>
-						<?php  echo $bibliografia; ?>
-					</p>
-					<a href="#" class="expand-bio" >Ler mais</a>
+								echo substr($bibliografia, 0,231).'...';
+							}
+							
+						 ?>
+							<a style="font-weight: bold;" href="./editar/?id='.$id.'"">Ler mais</a>
+						</p>
+
+						
+						
+					</div>
+
+					<br>
+
+					<div style="padding-left: 10px;">
+						<strong>Partilhar:</strong>
+						<br><br>
+
+						<button style="font-weight: bold!important;background-color: #094c9e    !important;color: white!important;box-shadow: none!important;width: 130px; border-radius: 50px!important;    border: none!important;" type="submit"  class="btn-publish kalunga waves-effect"><img height="15" src="../../img/facebook.png"></button>
+
+						<button style=" margin-left: 10px;font-weight: bold!important;background-color: #03A9F4    !important;color: white!important;box-shadow: none!important;width: 130px; border-radius: 50px!important;    border: none!important;" type="submit"  class="btn-publish kalunga waves-effect"><img height="15" src="../../img/twiter.png"></button>						
+					</div>					
+
+					<br><br>
+									
 				</div>
 
-
-
-				<div class="events">
-					<h3 class="title">Funeral</h3>
-					<ul class="funeral-date">
-						<li><a href="#">Local Funebre: <?php  echo $local_funebre; ?> </a></li>
-						<li><a href="#">1º Dia do funeral: <span> <?php  echo $data_funeral; ?> </span></a></li>
+				<div class="col s12 m12 l6">
+					<div class="bio card">
+						<h2 style="margin: 0px!important" class="title">Funeral</h2>
+						<ul class="funeral-date">
+						<br>
+							<li><strong>Local Funebre:</strong>  <?php  echo $local_funebre; ?> </li>
 				
-						<li>
-						<form method="post" action="../../V1/memorial/notificacao/index.php">
-							<input type="text" style="display: none;" name="id" value = <?php echo $id ?> >
-							<input type="submit" class="btn-funeral-action waves-effect" title="Notificar-me para o funeral" value="Notificar-me">
+							<li><strong>Dia do funeral:</strong> <?php  echo $data_funeral; ?> </li>
+					
+							<li>
+							<br>
+							<form method="post" action="../../V1/memorial/notificacao/index.php">
 
 							
-						</form>
-							
-						</li>
-					</ul>
-				</div>
+								<input type="text" style="display: none;" name="id" value = <?php echo $id ?> >
+
+								
+
+								<button style="font-weight: bold!important;background-color: #191919  !important;color: white!important;box-shadow: none!important;width: 130px; border-radius: 50px!important;    border: none!important;" type="submit"  class="btn-publish kalunga waves-effect">Notificar-me</button>
+
+								
+							</form>
+								
+							</li>
+						</ul>
+					</div>					
+				</div>				
+			</div>
+
+			<br>
+			<div style="margin-left: 15%;margin-right: 15%;" class="divider"></div>
+			<br>
+
+
 			</section>
 			
-			<section class="memorial-content">
+			<section class="row">
 				
-				<article class="multimedia">
+				<article class="col s12 m12 ">
 					<h2 class="title">Fotos</h2>
-					<div class="fotos">
+					<div class="fotos row ">
 
 					<?php 
+						if (isset($_SESSION['idUserPersona']) && $_SESSION['idUserPersona']==$idPersonaCad ) {
+							echo 
+							'
+							<div class=" col s6 m4 l3 center-align " style="height: 200px;">
+								<label class="valign-wrapper" for="fileFoto" style="background: white;height: 100%;width: 100%;border-radius: 10px;">
+									<p style="width: 100%;">
+										<i class="material-icons right" style="margin-top: 10px;margin-left: 0px; font-size: 70px!important;width: 100%;    color: #9e9e9e66;">add</i>
+										<br>
+										Adicionar
+										</p>
+								</label>
+				            </div>
 
-						if (isset($_SESSION['idUserPersona'])) {
+							';
+						}
+					 ?>
+					 
+					 <input type="file" style="display: none;" onchange="UploadFoto()" id="fileFoto">		
+
+
+						<?php 
+
+
+
+						if (isset($_SESSION['idUserPersona']) || 1) {
 							
-							echo '<label for="fileFoto">
-				                      <div class="card">
-				                        <div style="filter: grayscale(100%);" class="card-image">
-				                          <img src="../../../media/photos/blank.png">
-				                          <spana style="font-weight: bold;" class="card-title">Carregar<i class="material-icons right" style="margin-top: 10px;margin-left: 0px;">add</i></span>
-				                        </div>
-				                      </div>
-				                  </label>';
+							echo '
+
+								<div class=" col s6 m4 l3">
+									<img  style="height:200px; filter: grayscale(100%);" src="../../../media/photos/2213403296.jpg">
+								</div>
+								<div class=" col s6 m4 l3">
+									<img  style="height:200px; filter: grayscale(100%);" src="../../../media/photos/2213403296.jpg">
+								</div>				                  	
+								<div class=" col s6 m4 l3">
+									<img  style="height:200px; filter: grayscale(100%);" src="../../../media/photos/2213403296.jpg">
+								</div>
+
+								<div class=" col s6 m4 l3">
+									<img  style="height:200px; filter: grayscale(100%);" src="../../../media/photos/2213403296.jpg">
+								</div>
+								<div class=" col s6 m4 l3">
+									<img  style="height:200px; filter: grayscale(100%);" src="../../../media/photos/2213403296.jpg">
+								</div>
+
+				                  ';
 
 	 					}
 					 ?>	                	
-					 <input type="file" style="display: none;" onchange="UploadFoto()" id="fileFoto">
+
 
 						<?php 
 
 						    $prepa = $conn->prepare("select * from foto where idMemorial =".$id);
 						    $prepa->execute();
 						    while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){ 
-				    			echo '<img src="../../../media/photos/'.$linha['foto'].'" class="materialboxed" width="140" height="140" />';			
+				    			echo '
+									<div class=" col s6 m4 l3">
+										<img  style="height:200px; filter: grayscale(100%);" src="../../../media/photos/'.$linha['foto'].'">
+									</div>';			
 						    }        
 						 ?>
 
-				  </div>
 
-					<div class="video">
-						<video src=<?php echo $video_url; ?> class="video-memorial" controls="controls"></video>
-					</div>
+
+				  </div>
+				  <br><br>
+				<div class="center-align">
+					<button style="height: 50px;font-weight: bold!important;background-color: #191919  !important;color: white!important;box-shadow: none!important;width: 130px; border-radius: 50px!important;    border: none!important;">Mais fotos</button>
+				</div>	
+
 				</article>
 
-				<article class="condolences">
-					<h2 class="title center-align">Condolências</h2>
-					<div class="card">
+		
+		</section>
+
+
+			<br><br>
+			<div style="margin-left: 15%;margin-right: 15%;" class="divider"></div>
+			<br>
+
+			
+
+		<section class="row">
+				
+				
+				<article class="col s12 m12">
+					<h2 class="title">Publicar condolências</h2>
+					<h3 class="title">Deixe o seu apoio</h3>
+					<br>
+					<div >
 						
 					<?php 
 						include 'condolencias/index.php';
-					 ?>			
+					 ?>					
+				</article>
+		</section>
+
+				
+		
+
+		
+
+
+		<section class="row">
+				
+				
+				<article class="col s12 m12">
+					
+					
 
 					<?php 
 
-						$prepa = $conn->prepare("select condolencia.texto,condolencia.data , persona.nome from condolencia,persona where persona.id = condolencia.idPersona  and idMemorial =".$id);
+						$prepa = $conn->prepare("select condolencia.texto,condolencia.data,nome from condolencia where  idMemorial =".$id);
 
 						$prepa->execute();
 						while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){ 
-				    		echo '<div class="message-container">
-										<p>'.$linha['texto'].'</p>
+				    		echo '<div class="bio card">
+				    					<h6><b>'.$linha['nome'].'</b></h6>
+
+										<p>'.$linha['texto'].'...<a style="font-weight: bold;" href="./editar/?id='.$id.'"">Ler mais</a></p>
 										<span>
-											<b>'.$linha['nome'].'</b>
+												
 												'.$linha['data'].'
+
 										</span>
 									</div>';
 						    } 
 						?>
 
-					
-					<a href="#" class="view-more-messages">Ver mais</a>
-		
 				</article>
 
-			</section>
+		
+		</section>
 
-				    <div  class="swiper-container slide swiper1">
-				       
-						<div class="covers swiper-wrapper swiper-slide">
-							<div class="cover swiper-slide">
-								<p class="center-align "><img src="../../media/photos/1.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>
-							<div class="cover swiper-slide">
-								<p class="center-align"><img src="../../media/photos/2.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>
-							<div class="cover swiper-slide">
-								<p class="center-align"><img src="../../media/photos/3.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>			
-							<div class="cover swiper-slide">
-								<p class="center-align"><img src="../../media/photos/4.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>
-							<div class="cover swiper-slide">
-								<p class="center-align"><img src="../../media/photos/5.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>
-							<div class="cover swiper-slide">
-								<p class="center-align"><img src="../../media/photos/3.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>
-							<div class="cover swiper-slide">
-								<p class="center-align"><img src="../../media/photos/1.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>
-							<div class="cover swiper-slide">
-								<p class="center-align"><img src="../../media/photos/2.png"></p>
-								<p class="topN center-align"><strong>edvanio</strong></p>
-							</div>
-						</div>
-					</div>
+				<br><br>
 
-		</main>
-		<footer id="rodape" style="margin-top: 5rem;">
+				<div class="center-align">
+					<button style="height: 50px;font-weight: bold!important;background-color: #191919  !important;color: white!important;box-shadow: none!important;width: 160px; border-radius: 50px!important;    border: none!important;">Mais condolências</button>
+				</div>	
+				<br><br><br>
 
-			<?php 
-		$UID = 0;
-		if (isset($_COOKIE['UID'])) {
-			$UID = $_COOKIE['UID'];
-		}else{
-			$UID =  bin2hex(random_bytes(16));
-			setcookie('UID',$UID);
-		}
 
-		echo '<input type="text" value="'.$UID.'" class="noDisplay" name="UID" />';
-	 ?>
-			
-		</footer>
+				<div class="center-align">
+					<h2 class="title">Veja também</h2>
+					<br>
+				</div>	
+	</main>
+
+
+
+		<?php include '../../../footer.php'; ?>
 
 		<!-- <script src="../../node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
 		<script src="../../../build/materialize.min.js"></script>

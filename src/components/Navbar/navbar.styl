@@ -16,7 +16,8 @@ header {
 	background: url('../../src/img/bg-flowers.png') no-repeat;
 	
 	background-size: cover;
-	height: 60vh;
+	height: 45vh;
+	
 	@media (max-width: 568px) {
 		background-size: cover;
 		background-position: center;
@@ -62,49 +63,58 @@ nav{
 
 .btn-menu {
 	@extends .kalunga;
-	height: 36px !important;
-	width: 44px !important;
+
 	cursor: pointer;
 	background-color: transparent !important;
 	box-shadow: none!important;
 	border:none !important
 
-	@media (max-width: 320px) {
-		padding-right: 1.4rem;
-	}
 	i{
 		color: #e2e2e2!important;
 	}
 }
 
-.form-search {
-	position: relative;
-	margin-right: 2rem;
-	margin-left: 0.8rem;
-	& i {
-		
-		color: #777;
-		height: 40px !important;
-		top: 20px;
-		left: 10px;
-
+.nav-wrapper{
+	@media only screen and (max-width: 600px){
+		.show-on-small {
+	    	display: flow-root !important;
+		}		
 	}
 }
 
+.form-search {
+	position: relative;
+
+	& i {
+		float: left;
+		color: #777;
+		height: 40px !important;
+	}
+
+	input{
+		background-color:#333333!important;
+		border:none!important;
+		color: #777777 !important;
+		border-radius: 6px!important;
+		-webkit-border-radius: 50px!important;
+	}
+
+	input:focus{
+		border-bottom: none!important;
+        -webkit-box-shadow: none!important;
+    	box-shadow: none!important;
+	}
+}
+
+
 .input-search {
+
 	font-weight: bold;
 	width: 466px !important;
 	margin: 0 !important;
-	@media (max-width: 568px) {
-		width: 50% !important;
-	}
-	
-	@media (max-width: 768px) {
-		width: 80% !important;
-	}
 	height: 39px !important;
-	padding-left: 2.5rem !important;
-	padding-right: 0.5rem !important;
+	text-align: center;
+
 	&::-webkit-input-placeholder {
 		color: #777;
 	}
@@ -119,4 +129,22 @@ nav{
 	height: 42px;
 	font-weight: bold;
 	color:#424242
+}
+
+.contaIcon{
+
+}
+#nav-mobile{
+	
+		position: absolute;
+    	right: 30px;
+    	top: 0px;
+	
+}
+
+body{
+	background-color: #f1f1f1;
+}
+a{
+	color: black;
 }

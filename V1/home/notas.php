@@ -3,7 +3,7 @@
     include(dirname(__FILE__) . '/../connect.php');
     include(dirname(__FILE__) . '/../../serverName.php');
 
-    $prepa = $conn->prepare("SELECT nome,foto,bibliografia,id FROM memorial ORDER BY id DESC  LIMIT 6");
+    $prepa = $conn->prepare("SELECT nome,foto,bibliografia,id FROM memorial ORDER BY id DESC  LIMIT 8");
 
     if ($prepa->execute()) {
 
@@ -13,6 +13,10 @@
           $foto = ( $linha['foto'] );
           $nome = ( $linha['nome'] );
           $bibliografia = ( $linha['bibliografia'] );
+
+          
+          
+           
 
           echo "<figure>
                     <a href='src/views/memorial/?id=$id'>
@@ -24,7 +28,8 @@
                       </div>
                     </a>
                     <figcaption class='nota-falecimento'>
-                      $bibliografia
+                      ".substr($bibliografia,0,90)."...
+                            
                     </figcaption>
                 </figure>";
            

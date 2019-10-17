@@ -21,8 +21,8 @@
 	<?php $initPath = '../../../'; include '../../../navBar.php'; ?>
 
 	<main>
-
-		<h1 class="align-center">Pesquisa: "<?php  echo $_GET['query']; ?>"</h1>
+		<br>
+		<h3 style="margin-left: 10px">Pesquisa: <span style="font-weight: lighter;">"<?php  echo $_GET['query']; ?>"</span></h3>
 		
 		<section class="funeral-content">
 			<br>

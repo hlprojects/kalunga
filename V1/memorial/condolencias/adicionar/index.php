@@ -4,7 +4,7 @@
 
 	 session_start();
 
-	$prepa = $conn->prepare("INSERT INTO `condolencia`(`idMemorial`, `idPersona`, `texto`, `parentesco`) VALUES ('".$_POST['id']."','".$_SESSION['idUserPersona']."','".$_POST['message']."','".$_POST['parentesco']."')");
+	$prepa = $conn->prepare("INSERT INTO `condolencia`(`idMemorial`, `nome`, `texto`, `parentesco`) VALUES ('".$_POST['id']."','".$_POST['nome']."','".$_POST['message']."','".$_POST['parentesco']."')");
 
 
     if ($prepa->execute()) {

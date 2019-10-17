@@ -12,7 +12,10 @@
     $capa = ''; 
     $id = '';
     $local_funebre = ''; 
-    $descricao = ''; 
+    $descricao = '';
+    $ano_nasce = '';
+    $ano_morte = ''; 
+    $idPersonaCad = '';
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -20,7 +23,7 @@
         $id =  $_POST['id'];
     }
 
-    $prepa = $conn->prepare("select * from memorial where id =".$id);
+    $prepa = $conn->prepare("select *,year(data_nascimento) as ano_nasce,year(data_die) as ano_morte from memorial where id =".$id);
 
     if ($prepa->execute()) {
         while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){
@@ -35,7 +38,10 @@
                 $bibliografia = $linha['bibliografia']; 
                 $capa = $linha['capa']; 
                 $local_funebre = $linha['local_funebre'];
-                $descricao = $linha['descricao'];           
+                $descricao = $linha['descricao'];
+                $ano_nasce = $linha['ano_nasce'];
+                $ano_morte = $linha['ano_morte']; 
+                $idPersonaCad = $linha['idPersonaCad'];           
             }else{
                 echo "";
                 //saida para o ajax

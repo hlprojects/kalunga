@@ -21,7 +21,8 @@
 	<?php $initPath = '../../../'; include '../../../navBar.php'; ?>
 
 	<main>
-		<h1 class="align-center">Memoriais</h1>
+	<br>
+		<h3 style="margin-left: 10px">Memoriais</h3>
 		<section class="funeral-content">
 
 			<div class="row">
