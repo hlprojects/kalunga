@@ -7,6 +7,9 @@
     $randomName2 = '';
     $type2 = '';
 
+    $randomName1 = '';
+    $type1 = '';
+
     $UserCad = 0;
 
     if (isset($_SESSION['idUserPersona'])) {
@@ -26,6 +29,19 @@
         move_uploaded_file($_FILES["boletim_k"]["tmp_name"],$randomFullName2);
     }
 
+    if (isset($_FILES["BI_k"])) {
+        $randomFullName1 = '';
+        $exploder1 = explode('.', $_FILES["BI_k"]["name"]);
+        $type1 =  strtolower(end($exploder1));
+        $pathFil1 = '../../../media/files/';
+
+        do{
+            $randomName1 = (rand() + time());
+            $randomFullName1 =$pathFil1 . $randomName1.'.'.$type1;
+        }while (file_exists($randomFullName1));
+        move_uploaded_file($_FILES["boletim_k"]["tmp_name"],$randomFullName1);
+    }
+
     $tag = str_replace(' ','', $_POST['nome_k']);
 
 	$prepa = $conn->prepare("
@@ -38,7 +54,8 @@
             `capa`,
             `boletim`,
             `descricao`,
-            `idPersonaCad`
+            `idPersonaCad`,
+            `BI`
         ) VALUES (
             '".$_POST['nome_k']."',
             '".$_POST['data_morte_k']."',
@@ -46,8 +63,10 @@
             'blank.png',
             '@".$tag.date('Y')."',
             'blank.png',
+            '".$randomName2."',
             '".$_POST['descricao_k']."',
-            '".$UserCad."'
+            '".$UserCad."',
+            '".$randomName1."'
         )");
     
     if ($prepa->execute()) {  

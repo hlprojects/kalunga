@@ -5,7 +5,7 @@
     $nome = '';
     $foto = '';
 
-    $prepa = $conn->prepare("select nome,foto,id from memorial where nome like  '%".$_GET['query']."%' limit 16");
+    $prepa = $conn->prepare("select nome,foto,id from memorial where  accept=1 and  nome like  '%".$_GET['query']."%' limit 16");
 
     if ($prepa->execute()) {
         while($linha = $prepa->fetch(PDO::FETCH_ASSOC)){

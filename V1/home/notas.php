@@ -3,7 +3,7 @@
     include(dirname(__FILE__) . '/../connect.php');
     include(dirname(__FILE__) . '/../../serverName.php');
 
-    $prepa = $conn->prepare("SELECT nome,foto,bibliografia,id FROM memorial ORDER BY id DESC  LIMIT 8");
+    $prepa = $conn->prepare("SELECT nome,foto,bibliografia,id FROM memorial WHERE accept =1 ORDER BY id DESC  LIMIT 8");
 
     if ($prepa->execute()) {
 

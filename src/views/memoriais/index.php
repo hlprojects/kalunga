@@ -27,7 +27,17 @@
 
 			<div class="row">
 
-
+							<div class="col s6 m4 l2 center-align " style="height: 200px;margin-top: 20px;">
+								<a href="../memorial/publicar">
+									<label class="valign-wrapper" for="fileFoto" style="background: white;height: 200px;width: 100%;border-radius: 10px;">
+										<p style="width: 100%;">
+											<i class="material-icons right" style="margin-top: 10px;margin-left: 0px; font-size: 70px!important;width: 100%;    color: #9e9e9e66;">add</i>
+											<br>
+											Publicar
+											</p>
+									</label>
+								</a>
+				            </div>
 
 				<?php 
 					include '../../../V1/memoriais/index.php';

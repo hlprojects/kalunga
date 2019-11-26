@@ -1,5 +1,6 @@
-<?php 
 
+<?php 
+  
     include(dirname(__FILE__) . '/../connect.php');
     include(dirname(__FILE__) . '/../../serverName.php');
 
@@ -21,7 +22,9 @@
        FROM
           `memorial`
         WHERE 
-          idPersonaCad =".$IdUser."
+          idPersonaCad =".$IdUser." and
+
+          accept =1
 
         UNION DISTINCT
 
@@ -32,6 +35,9 @@
         FROM 
           memorial
 
+
+        WHERE 
+          accept =1
         ORDER BY 
           id desc 
 

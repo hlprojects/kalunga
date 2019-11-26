@@ -15,7 +15,13 @@
                    <a  href="../memorial/?id='.$linha['id'].'" >
                       <div class="card" style="border-radius: 10px;filter: grayscale(100%);background:url(../../../media/photos/'.$linha['foto'].');background-size: cover!important;height: 200px;background-position: center!important;">
                         
-                          <p style="border-radius: 10px;color:white;padding: 20px;width: 100%;height: 100%;background-color: #00000091;font-size: 20px;" class="card-title">'.$linha['nome'].'</p>
+                          <p style="border-radius: 10px;color:white;padding: 20px;width: 100%;height: 100%;background-color: #00000091;font-size: 20px;" class="card-title">'.$linha['nome'].
+
+
+
+                          '</p>
+
+                          
                        
                       </div>
                    </a>

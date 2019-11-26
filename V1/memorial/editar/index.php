@@ -20,11 +20,12 @@
         }while (file_exists($randomFullName));
 
         if (move_uploaded_file($_FILES["foto"]["tmp_name"],$randomFullName)) {
-            unlink('../../../media/photos/'.$_POST['foto_antiga']);
+            if ($_POST['foto_antiga']!='blank.png') {
+                unlink('../../../media/photos/'.$_POST['foto_antiga']);
+            }
         }
-        
     }
-        
+       
     if (($_FILES["capa"]["name"])!='') {
         $randomFullName1 = '';
         $exploder1 = explode('.', $_FILES["capa"]["name"]);
@@ -36,10 +37,10 @@
         }while (file_exists($randomFullName1));
 
         if (move_uploaded_file($_FILES["capa"]["tmp_name"],$randomFullName1)) {
-            unlink('../../../media/photos/'.$_POST['capa_antiga']);
+            if ($_POST['capa_antiga']!='blank.png') {
+                unlink('../../../media/photos/'.$_POST['capa_antiga']);
+            }
         }
-        
-        
     }
 
 	$prepa = $conn->prepare("
@@ -53,10 +54,8 @@
             `data_funeral`= '".$_POST['data_funeral_k']."',
             `local_funebre`= '".$_POST['local_funeral_k']."',
             `descricao`= '".$_POST['descricao_k']."'
-
         WHERE 
             id = '".$_POST['id']."'
-
         ");
     
     if ($prepa->execute()) {  
@@ -65,6 +64,5 @@
 	    
     }else{
     	echo "404";
-    }
-                   
+    }                   
  ?>

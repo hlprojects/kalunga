@@ -132,6 +132,17 @@ body {
 a {
   color: #000;
 }
+.popup {
+  position: fixed;
+  min-height: 100px;
+  background-color: rgba(25,25,25,0.922);
+  width: 100%;
+  z-index: 2;
+  bottom: 0px;
+}
+#facebook {
+  display: none !important;
+}
 .covers {
   margin-right: 20px;
   margin-left: 20px;
@@ -295,12 +306,19 @@ h2.title {
 .bio {
   padding: 20px;
   border-radius: 20px;
-  height: 230px;
+  min-height: 230px;
   border: 1px solid #e8e8e8 !important;
   box-shadow: none !important;
 }
 .bio p {
   text-align: justify;
+}
+.condolencia {
+  padding: 20px;
+  border-radius: 20px;
+  min-height: 170px;
+  border: 1px solid #e8e8e8 !important;
+  box-shadow: none !important;
 }
 .bioBlack {
   padding: 20px;
@@ -354,7 +372,43 @@ h2.title {
 }
 .fotos img {
   border: 1px solid #e8e8e8 !important;
-  margin-bottom: 20px;
+  margin-top: 20px;
   border-radius: 10px;
   width: 100%;
+}
+.bioBlack2 {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: none !important;
+  background: #191919 !important;
+}
+.inputs {
+  padding-left: 20px !important;
+  width: calc(100% - 20px) !important;
+  background-color: #333 !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 50px !important;
+  font-weight: bold;
+  -webkit-border-radius: 50px !important;
+}
+.inputs:focus {
+  border-bottom: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.inputsArea {
+  height: 200px;
+  padding-top: 20px;
+  border-radius: 30px !important;
+}
+.imagem i {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 20px;
+  background: #fff;
+  padding: 5px;
+  border-radius: 50px;
+  color: #808080;
+  z-index: 1;
 }

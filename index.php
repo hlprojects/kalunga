@@ -38,7 +38,7 @@
 						"A morte é o destino que todos nós compartilhamos"
 					</h5>
 
-					<div class="quote-author white-text">Steve Jobs</div>
+					<div class="quote-author white-text">Edvanio janurio</div>
 					
 					<br>
 					<a href="src/views/memorial/publicar" style=""><button style="border-radius: 50px!important;font-weight: bold;color: #808080;border: none!important;" type="button"  class="btn-publish waves-effect"> <strong>Publicar</strong></button></a>				
@@ -60,7 +60,7 @@
 		<br>
 		<div  class="swiper-container slide swiper1">
 			<div class="covers swiper-wrapper ">
-				<?php include 'V1/home/store.php';?>
+				<?php  include 'V1/home/store.php';?>
 			</div>
 		</div>
 		<br><br> 
@@ -89,9 +89,6 @@
 				<?php include 'V1/home/notas.php';?>
 
 
-				<div class="center-align">
-					<button style="height: 50px;width: 120px;border-radius: 50px!important;color: grey;font-weight: bold;background-color: #ffffff47 !important;">Mais notas</button>
-				</div>
 
 				
 			</div>

@@ -42,7 +42,22 @@
 		    reader.readAsDataURL(input.files[0]);
 		  
 		}
-		  
+
+		function eliminar_cancel(argument) {
+			var form = document.getElementById('eliminar_form');
+			form.style.display = 'none';
+
+			var form = document.getElementById('eliminar_button');
+			form.style.display = 'inline';
+		}
+
+		function eliminar_show_form(argument) {
+			var form = document.getElementById('eliminar_form');
+			form.style.display = 'inline';
+
+			var form = document.getElementById('eliminar_button');
+			form.style.display = 'none';
+		}		  
 	</script>
 	
 </head>
@@ -119,27 +134,31 @@
 
 									    	<div class="col  s12">
 												<label for="nome_k">Nome</label>
-												<input required type="text" name="nome_k" id="nome_k" placeholder="Nome do malogrado" value = <?php echo $nome ?> />
+
+												<?php 
+													echo '<input required type="text" name="nome_k" id="nome_k" placeholder="Nome do malogrado" value="'.$nome.'">';
+												 ?>
+												
 											</div>
 
 									    	<div class="col  s12">
 												<label for="data_nascimento_k">Data de nascimento</label>
-												<input required type="date" class="" id="data_nascimento_k" name="data_nascimento_k" value = <?php echo $data_nascimento ?> />
+												<input required type="date" class="" id="data_nascimento_k" name="data_nascimento_k" value = <?php echo $data_nascimento ?> >
 											</div>
 
 									    	<div class="col  s12">
 												<label for="data_morte_k">Data da morte</label>
-												<input required type="date" class="" id="data_morte_k" name="data_morte_k"  value = <?php echo $data_die ?>/>
+												<input required type="date" class="" id="data_morte_k" name="data_morte_k"  value = <?php echo $data_die ?>>
 											</div>
 
 									    	<div class="col  s12">
 												<label for="data_funeral_k">Data do funeral(Opcional)</label>
-												<input required type="date" class="" id="data_funeral_k" name="data_funeral_k"  value = <?php echo $data_funeral ?>/>
+												<input  type="date" class="" id="data_funeral_k" name="data_funeral_k"  value = <?php echo $data_funeral ?>>
 											</div>
 
 									    	<div class="col  s12">
 												<label for="local_funeral_k">Local do funeral</label>
-												<input required type="text"  id="local_funeral_k" name="local_funeral_k" value = <?php echo $local_funebre ?> />
+												<input  type="text"  id="local_funeral_k" name="local_funeral_k" value = <?php echo $local_funebre ?> >
 
 									    	</div>
 									    </div>
@@ -151,16 +170,48 @@
 
 								    	<div class="col  s12">
 											<label for="bibliografia_k">Bibliografia</label>
-											<textarea required name="bibliografia_k" id="bibliografia_k" class="materialize-textarea" placeholder="bibliografia" cols="30" rows="10" maxlength="266"><?php echo $bibliografia ?></textarea>
+											<textarea  name="bibliografia_k" id="bibliografia_k" class="materialize-textarea" placeholder="bibliografia" cols="30" rows="10" ><?php echo $bibliografia ?></textarea>
 										</div>
 
-										<button type="submit"  style="border: none!important; margin-left: 10px" class="btn-publish kalunga waves-effect">Salvar</button>
+										<button type="submit"  style="border: none!important; margin-left: 10px;width: 200px;color: black!important" class="btn-publish kalunga waves-effect">Salvar</button>
 										<br>
 										<br>
 									</div>
 								</div>
 
 					</form>
+
+					
+
+					<div class="valign-wrapper row login-box">
+	    						
+						<div class="col  s10 pull-s1 center-align ">
+
+							<form action="../../../../V1/memorial/eliminar/index.php" method="post" class="form-message" enctype="multipart/form-data">
+
+								<input  type="text" style="display: none;" name="capa_antiga" value = <?php echo $capa ?> >
+								<input  type="text" style="display: none;" name="foto_antiga" value = <?php echo $foto ?> >
+								<input  type="text" style="display: none;" name="id" value = <?php echo $id ?> >
+								<input  type="text" style="display: none;" name="boletim" value = <?php echo $boletim ?> >
+								<input  type="text" style="display: none;" name="BI" value = <?php echo $BI ?> >
+
+
+								<div id="eliminar_form" class="center-align" style="display: none;">
+									
+
+									<button type="submit" style="font-weight: bold!important;background-color: #191919  !important;color: white!important;box-shadow: none!important;width: 300px; border-radius: 50px!important;background: #F44336!important;border: none!important;" type="submit"  class="btn-publish kalunga waves-effect">Eliminar agora</button>
+
+									<a onclick="eliminar_cancel()" style="margin-left: 30px; color: red;font-weight: bold;" >Cancelar</a>							
+								</div>
+
+								
+						
+							</form>
+							<button id="eliminar_button" onclick="eliminar_show_form()"  style="border: none!important; margin-left: 10px;width: 300px;background: #F44336!important;    border-radius: 30px !important;color: white" class="btn-publish kalunga waves-effect">Eliminar</button>
+						</div>
+					</div>
+
+					
       
 	    </div>
 
@@ -170,12 +221,11 @@
 
 	<?php include '../../../../footer.php'; ?>
 
-	<!-- <script src="../../node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
+
 	<script src="../../../../build/materialize.min.js"></script>
 	<script src="../../../../build/axios.min.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
-		
 	    	M.AutoInit();
 	    });
 	</script>

@@ -16,6 +16,8 @@
     $ano_nasce = '';
     $ano_morte = ''; 
     $idPersonaCad = '';
+    $boletim = '';
+    $BI = '';
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -31,6 +33,8 @@
             if (isset($_GET['id'])) {
                 $nome = $linha['nome'];
                 $tag = $linha['tag'];
+                $boletim = $linha['boletim'];
+                $BI = $linha['BI'];
                 $foto = $linha['foto'];
                 $data_die = $linha['data_die']; 
                 $data_nascimento = $linha['data_nascimento']; 

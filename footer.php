@@ -1,6 +1,15 @@
 		<footer class="page-footer" style="background-color: #191919 !important">
 		  <div class="container">
+
+		  	<div style="text-align: center;">
+			  	<a href="#topo" style="color: white;font-weight: bold;width: 100%">
+			  		<i class="material-icons" style="">keyboard_arrow_up</i><br>	
+			  		voltar ao topo
+			  	</a>		  		
+		  	</div>
+
 			<div class="row">
+
 			  <div class="col l6 s12">
 				<h5 class="white-text">Kalunga</h5>
 				<p class="grey-text text-lighten-4">Obituário Online</p>
